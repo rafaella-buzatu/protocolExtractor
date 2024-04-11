@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
                           <div class="field">
                               <label class="mdc-text-field mdc-text-field--filled">
                                   <span class="mdc-text-field__ripple"></span>
-                                  <input class="mdc-text-field__input" type="text" placeholder="Mixture Ratio" value="100%">
+                                  <input class="mdc-text-field__input" type="text" placeholder="Mixture Ratio"">
                                   <span class="mdc-floating-label">Mixture Ratio</span>
                                   <span class="mdc-line-ripple"></span>
                               </label>
