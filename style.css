@@ -103,6 +103,12 @@ p {
   margin-left: 15px;
 }
 
+.mdc-icon-button-custom{
+    font-size: 20px !important;      /* Ensuring our style overrides MDC styles */
+    padding: 12px 24px !important;   /* Important tag may be needed depending on specificity */
+    min-width: 120px;                /* Minimum width */
+    height: 50px;                    /* Specific height */
+}
 .svg-container {
     position: absolute;
     top: 0;
@@ -135,6 +141,16 @@ hr {
   padding-left: 0;
 }
 
+.custom-passaging {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.custom-readout {
+  margin-left: 0;
+  padding-left: 0;
+}
+
 .numbering-and-field {
   display: flex;
   align-items: flex-start; /* Align items at the top */
@@ -150,6 +166,19 @@ hr {
 .field {
   flex: 1;
 }
+#mediaCheckbox, .passaging--container {
+  display: block;
+  width: 100%;
+  float: none;
+  clear: both;
+}
+
+#step0Checkbox, .step0 {
+  display: block;
+  width: 100%;
+  float: none;
+  clear: both;
+}
 
 
 #submitBtn {
@@ -163,5 +192,4 @@ hr {
   border: none;             /* Removes any border */
   align-items: center;;
 }
-
 

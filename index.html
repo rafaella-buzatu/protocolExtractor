@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
 <main>
     <div class="ribbon"></div>
     <div class="card-container">
@@ -51,7 +52,7 @@
                         <div class="mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-desktop flex-column">
                             <p><b>Cell line information:</b></p>
                             <div class="cell-line-set">
-                                <span>1.</span>
+                                
                                 <div class="options-container">
                                     <div class="mdc-form-field">
                                         <div class="mdc-radio">
@@ -89,28 +90,70 @@
                             
                               <h2 style="font-size: 24px; font-weight: bold;">Protocol steps</h2>
                               <hr>
-                              <h3 style="font-size: 20px; font-weight: bold;">Step 0: Undifferentiated state</h3>
-                              <div class="custom-basal-media mdc-layout-grid">
-                                  <div class="mdc-layout-grid__inner">
-                                      <div class="mdc-layout-grid__cell--span-6">
-                                          <label id="duration-days-label" class="mdc-text-field mdc-text-field--filled w-100" style="width: 100%;">
-                                              <span class="mdc-text-field__ripple"></span>
-                                              <input id="durationDays" class="mdc-text-field__input" type="text" placeholder="Duration in days" aria-labelledby="duration-days-floating-label" required>
-                                              <span class="mdc-floating-label" id="duration-days-floating-label">Duration in days</span>
-                                              <span class="mdc-line-ripple"></span>
-                                          </label>
-                                      </div>
-                                      <div class="mdc-layout-grid__cell--span-6">
-                                          <label id="duration-hours-label" class="mdc-text-field mdc-text-field--filled w-100" style="width: 100%;">
-                                              <span class="mdc-text-field__ripple"></span>
-                                              <input id="durationHours" class="mdc-text-field__input" type="text" placeholder="Duration in hours" aria-labelledby="duration-hours-floating-label" required>
-                                              <span class="mdc-floating-label" id="duration-hours-floating-label">Duration in hours</span>
-                                              <span class="mdc-line-ripple"></span>
-                                          </label>
-                                      </div>
-                                  </div>
-                              </div>
+                              <h3 style="font-size: 20px; font-weight: bold;">Step 0: Undifferentiated cells</h3>
+                              <div class="checkbox-container" style="display: flex; align-items: center;">
+                                <div class="mdc-checkbox">
+                                    <input type="checkbox" id="step0Checkbox" class="mdc-checkbox__native-control" checked/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                </div>
+                                <label for="step0Checkbox" class="checkbox-label" style="margin-left: 10px; display: block;">Culturing protocol is given.</label>
                             </div>
+                        <div class = "step0-container", style="display:block">
+
+                            <h2 style="font-weight: bold; font-size: 20px;">Duration</h2>
+
+                              <div class="options-container">
+                                <div class="mdc-form-field" style="margin-right: 20px;">
+                                    <div class="mdc-radio">
+                                        <input class="mdc-radio__native-control" type="radio" id="not-given" name="duration" value="0">
+                                        <div class="mdc-radio__background">
+                                            <div class="mdc-radio__outer-circle"></div>
+                                            <div class="mdc-radio__inner-circle"></div>
+                                        </div>
+                                    </div>
+                                    <label for="overnight">not specified</label>
+                                </div>
+                              <div class="options-container">
+                                <div class="mdc-form-field" style="margin-right: 20px;">
+                                    <div class="mdc-radio">
+                                        <input class="mdc-radio__native-control" type="radio" id="overnight" name="duration" value="0">
+                                        <div class="mdc-radio__background">
+                                            <div class="mdc-radio__outer-circle"></div>
+                                            <div class="mdc-radio__inner-circle"></div>
+                                        </div>
+                                    </div>
+                                    <label for="overnight">overnight</label>
+                                </div>
+                                
+                                <div class="mdc-form-field">
+                                    <div class="mdc-radio">
+                                        <input class="mdc-radio__native-control" type="radio" id="hours" name="duration" value="1">
+                                        <div class="mdc-radio__background">
+                                            <div class="mdc-radio__outer-circle"></div>
+                                            <div class="mdc-radio__inner-circle"></div>
+                                        </div>
+                                    </div>
+                                    <label for="hours" style="margin-right: 10px;">hours</label>
+                                    <div class="mdc-text-field mdc-text-field--filled">
+                                        <input class="mdc-text-field__input" type="text" id="input-hours" placeholder="Enter hours">
+                                        <label class="mdc-floating-label" for="input-hours">Enter hours</label>
+                                        <div class="mdc-line-ripple"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            &nbsp;
+                                
+                            </div>
+                            
+                            
+                            <hr style = "height: 1px; background-color:grey">
+
                             <h2 style="font-weight: bold; font-size: 20px;">Formulation</h2>
                             <!-- Basal Media -->
                             <div class="basal-media-container">
@@ -123,7 +166,7 @@
                             <div class="mdc-layout-grid__inner">
                                 <div class="mdc-layout-grid__cell--span-12">
                                     <div class="numbering-and-field">
-                                        <span>1.</span>
+                                        
                                         <div class="fields-container">
                                             <div class="field">
                                                 <label class="mdc-text-field mdc-text-field--filled">
@@ -150,13 +193,17 @@
                                                 </label>
                                             </div>
                                             <div class="field">
-                                                <label class="mdc-text-field mdc-text-field--filled">
-                                                    <span class="mdc-text-field__ripple"></span>
-                                                    <input class="mdc-text-field__input" type="text" placeholder="Mixture Ratio" value="100%" required>
-                                                    <span class="mdc-floating-label">Mixture Ratio</span>
-                                                    <span class="mdc-line-ripple"></span>
+                                                <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                                                  <span class="mdc-text-field__ripple"></span>
+                                                  <select class="mdc-text-field__input" required>
+                                                    <option value="100">100%</option>
+                                                    <option value="50">50%</option>
+                                                    <option value="33">33%</option>
+                                                  </select>
+                                                  <span class="mdc-floating-label">Mixture Ratio</span>
+                                                  <span class="mdc-line-ripple"></span>
                                                 </label>
-                                            </div>
+                                              </div>
                                         </div>
                                     </div>
                                 </div>
@@ -168,7 +215,6 @@
                             </div>
                             </div>
 
-                             &nbsp;
                              <div class="serum-supplements-container">
                              <div class="custom-serum-supplements mdc-layout-grid">
                               <div class="mdc-layout-grid__cell--span-12">
@@ -178,7 +224,7 @@
                               <div class="mdc-layout-grid__inner">
                                   <div class="mdc-layout-grid__cell--span-12">
                                       <div class="numbering-and-field">
-                                          <span>1.</span>
+                                          
                                           <div class="fields-container">
                                               <div class="field">
                                                   <label class="mdc-text-field mdc-text-field--filled">
@@ -205,13 +251,18 @@
                                                   </label>
                                               </div>
                                               <div class="field">
-                                                  <label class="mdc-text-field mdc-text-field--filled">
-                                                      <span class="mdc-text-field__ripple"></span>
-                                                      <input class="mdc-text-field__input" type="text" placeholder="Mixture Ratio" required>
-                                                      <span class="mdc-floating-label">Mixture Ratio</span>
-                                                      <span class="mdc-line-ripple"></span>
-                                                  </label>
+                                                <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                                                  <span class="mdc-text-field__ripple"></span>
+                                                  <select class="mdc-text-field__input" required>
+                                                    <option value="100">100%</option>
+                                                    <option value="50">50%</option>
+                                                    <option value="33">33%</option>
+                                                  </select>
+                                                  <span class="mdc-floating-label">Mixture Ratio</span>
+                                                  <span class="mdc-line-ripple"></span>
+                                                </label>
                                               </div>
+                                              
                                           </div>
                                       </div>
                                   </div>
@@ -223,7 +274,6 @@
                              </div>
                           
                           
-                             &nbsp;
                              <div class="growth-factor-container">
                              <div class="custom-growth-factors mdc-layout-grid">
                               <div class="mdc-layout-grid__cell--span-12">
@@ -233,7 +283,382 @@
                               <div class="mdc-layout-grid__inner">
                                   <div class="mdc-layout-grid__cell--span-12">
                                       <div class="numbering-and-field">
-                                          <span>1.</span>
+                                         
+                                          <div class="fields-container">
+                                              <div class="field">
+                                                  <label class="mdc-text-field mdc-text-field--filled">
+                                                      <span class="mdc-text-field__ripple"></span>
+                                                      <input class="mdc-text-field__input" type="text" placeholder="Name" required>
+                                                      <span class="mdc-floating-label">Name</span>
+                                                      <span class="mdc-line-ripple"></span>
+                                                  </label>
+                                              </div>
+                                              <div class="field">
+                                                  <label class="mdc-text-field mdc-text-field--filled">
+                                                      <span class="mdc-text-field__ripple"></span>
+                                                      <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
+                                                      <span class="mdc-floating-label">Vendor</span>
+                                                      <span class="mdc-line-ripple"></span>
+                                                  </label>
+                                              </div>
+                                              <div class="field">
+                                                  <label class="mdc-text-field mdc-text-field--filled">
+                                                      <span class="mdc-text-field__ripple"></span>
+                                                      <input class="mdc-text-field__input" type="text" placeholder="Catalog Number" required>
+                                                      <span class="mdc-floating-label">Catalog Number</span>
+                                                      <span class="mdc-line-ripple"></span>
+                                                  </label>
+                                              </div>
+                                              <div class="field">
+                                                    <label class="mdc-text-field mdc-text-field--filled">
+                                                        <span class="mdc-text-field__ripple"></span>
+                                                        <input class="mdc-text-field__input" type="text" placeholder="Final concentration" required>
+                                                        <span class="mdc-floating-label">Final concentration</span>
+                                                        <span class="mdc-line-ripple"></span>
+                                                    </label>
+                                                </div>
+                                             <div class="field">
+                                                    <label class="mdc-text-field mdc-text-field--filled">
+                                                        <span class="mdc-text-field__ripple"></span>
+                                                        <select class="mdc-text-field__input" required>
+                                                            <option value="ng/mL">ng/mL</default>
+                                                            <option value="μM">μM</option>
+                                                            <option value="mM">mM</option>
+                                                        </select>
+                                                        <span class="mdc-floating-label">Unit</span>
+                                                        <span class="mdc-line-ripple"></span>
+                                                    </label>
+                                                        </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                            </div>
+                                            
+                                            
+                                            
+                                          </div>
+                                      </div>
+                                  
+                            
+                            
+                          
+                              <button id="addGrowthFactorButton" type="button" class="mdc-icon-button">+</button>
+                             </div>
+                            
+
+                             <hr style = "height: 1px; background-color:grey">
+                             <h2 style="font-weight: bold; font-size: 20px;">Passaging</h2>
+                             <div class="checkbox-container" style="display: flex; align-items: center;">
+                              <div class="mdc-checkbox">
+                                  <input type="checkbox" id="mediaCheckbox" class="mdc-checkbox__native-control"/>
+                                  <div class="mdc-checkbox__background">
+                                      <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                          <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+                                      </svg>
+                                      <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                              </div>
+                              <label for="mediaCheckbox" class="checkbox-label" style="margin-left: 10px; width: 100%; display: block;">The cells were passaged following the addition of the compounds.</label>
+
+                              </div>
+                                                 
+    
+                        
+                          <div class="passaging--container" style="display:none;">
+                          <div class=" mdc-layout-grid">
+                           <div class="mdc-layout-grid__cell--span-12">
+                               <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Passaging media</h2>
+                           </div>
+                           
+                           <div class="mdc-layout-grid__inner">
+                               <div class="mdc-layout-grid__cell--span-12">
+                                   <div class="numbering-and-field">
+                                       
+                                       <div class="fields-container">
+                                           <div class="field">
+                                               <label class="mdc-text-field mdc-text-field--filled">
+                                                   <span class="mdc-text-field__ripple"></span>
+                                                   <input class="mdc-text-field__input" type="text" placeholder="Name" required>
+                                                   <span class="mdc-floating-label">Name</span>
+                                                   <span class="mdc-line-ripple"></span>
+                                               </label>
+                                           </div>
+                                           <div class="field">
+                                               <label class="mdc-text-field mdc-text-field--filled">
+                                                   <span class="mdc-text-field__ripple"></span>
+                                                   <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
+                                                   <span class="mdc-floating-label">Vendor</span>
+                                                   <span class="mdc-line-ripple"></span>
+                                               </label>
+                                           </div>
+                                           <div class="field">
+                                               <label class="mdc-text-field mdc-text-field--filled">
+                                                   <span class="mdc-text-field__ripple"></span>
+                                                   <input class="mdc-text-field__input" type="text" placeholder="Catalog Number" required>
+                                                   <span class="mdc-floating-label">Catalog Number</span>
+                                                   <span class="mdc-line-ripple"></span>
+                                               </label>
+                                           </div>
+                                           <div class="field">
+                                            <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                                              <span class="mdc-text-field__ripple"></span>
+                                              <select class="mdc-text-field__input" required>
+                                                <option value="100">100%</option>
+                                                <option value="50">50%</option>
+                                                <option value="33">33%</option>
+                                              </select>
+                                              <span class="mdc-floating-label">Mixture Ratio</span>
+                                              <span class="mdc-line-ripple"></span>
+                                            </label>
+                                          </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                         
+                           
+                           <button id="addPassagingButton" type="button" class="mdc-icon-button">+</button>
+                          </div>
+                          </div>
+                          &nbsp;
+
+                          <hr style = "height: 1px; background-color:grey">
+                          <h2 style="font-weight: bold; font-size: 20px;">Readout</h2>
+                          <div class="readout--container">
+                            <div class="custom-readout mdc-layout-grid">
+                             <div class="mdc-layout-grid__cell--span-12">
+                                 <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Gene markers</h2>
+                             </div>
+                             
+                             <div class="mdc-layout-grid__inner">
+                                 <div class="mdc-layout-grid__cell--span-12">
+                                     <div class="numbering-and-field">
+                                         
+                                         <div class="fields-container">
+                                             <div class="field">
+                                                 <label class="mdc-text-field mdc-text-field--filled">
+                                                     <span class="mdc-text-field__ripple"></span>
+                                                     <input class="mdc-text-field__input" type="text" placeholder="Name" required>
+                                                     <span class="mdc-floating-label">Name</span>
+                                                     <span class="mdc-line-ripple"></span>
+                                                 </label>
+                                             </div>
+                                             <div class="field">
+                                                 <label class="mdc-text-field mdc-text-field--filled">
+                                                     <span class="mdc-text-field__ripple"></span>
+                                                     <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
+                                                     <span class="mdc-floating-label">% positive cells</span>
+                                                     <span class="mdc-line-ripple"></span>
+                                                 </label>
+                                             </div>
+                                             <div class="field">
+                                                <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                                                  <span class="mdc-text-field__ripple"></span>
+                                                  <select class="mdc-text-field__input" required>
+                                                    <option value="up">↑ upregulated</option>
+                                                    <option value="down">↓ downregulated</option>
+                                                  </select>
+                                                  <span class="mdc-floating-label">Gene enrichment</span>
+                                                  <span class="mdc-line-ripple"></span>
+                                                </label>
+                                              </div>
+                                              
+                                         </div>
+                                     </div>
+                                 </div>
+                            </div>
+                            
+                             <button id="addReadoutButton" type="button" class="mdc-icon-button">+</button>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <hr>
+
+                        <!--STEP 1-->
+                        <div class="step-container">
+                        <h3 style="font-size: 20px; font-weight: bold;">Step 1</h3>
+
+                            <h2 style="font-weight: bold; font-size: 20px;">Duration</h2>
+
+                              <div class="options-container">
+                                <div class="mdc-form-field" style="margin-right: 20px;">
+                                    <div class="mdc-radio">
+                                        <input class="mdc-radio__native-control" type="radio" id="not-given" name="duration" value="0">
+                                        <div class="mdc-radio__background">
+                                            <div class="mdc-radio__outer-circle"></div>
+                                            <div class="mdc-radio__inner-circle"></div>
+                                        </div>
+                                    </div>
+                                    <label for="overnight">not specified</label>
+                                </div>
+                              <div class="options-container">
+                                <div class="mdc-form-field" style="margin-right: 20px;">
+                                    <div class="mdc-radio">
+                                        <input class="mdc-radio__native-control" type="radio" id="overnight" name="duration" value="0">
+                                        <div class="mdc-radio__background">
+                                            <div class="mdc-radio__outer-circle"></div>
+                                            <div class="mdc-radio__inner-circle"></div>
+                                        </div>
+                                    </div>
+                                    <label for="overnight">overnight</label>
+                                </div>
+                                
+                                <div class="mdc-form-field">
+                                    <div class="mdc-radio">
+                                        <input class="mdc-radio__native-control" type="radio" id="hours" name="duration" value="1">
+                                        <div class="mdc-radio__background">
+                                            <div class="mdc-radio__outer-circle"></div>
+                                            <div class="mdc-radio__inner-circle"></div>
+                                        </div>
+                                    </div>
+                                    <label for="hours" style="margin-right: 10px;">hours</label>
+                                    <div class="mdc-text-field mdc-text-field--filled">
+                                        <input class="mdc-text-field__input" type="text" id="input-hours" placeholder="Enter hours">
+                                        <label class="mdc-floating-label" for="input-hours">Enter hours</label>
+                                        <div class="mdc-line-ripple"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            &nbsp;
+                                
+                            </div>
+                            
+                            
+                            <hr style = "height: 1px; background-color:grey">
+
+                            <h2 style="font-weight: bold; font-size: 20px;">Formulation</h2>
+                            <!-- Basal Media -->
+                            <div class="basal-media-container">
+                            <div class="custom-basal-media mdc-layout-grid">
+                              <div class="mdc-layout-grid__cell--span-12">
+                                <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Basal Media</h2>
+                            </div>
+                            
+                            <!-- Assuming this is already within an mdc-layout-grid -->
+                            <div class="mdc-layout-grid__inner">
+                                <div class="mdc-layout-grid__cell--span-12">
+                                    <div class="numbering-and-field">
+                                        
+                                        <div class="fields-container">
+                                            <div class="field">
+                                                <label class="mdc-text-field mdc-text-field--filled">
+                                                    <span class="mdc-text-field__ripple"></span>
+                                                    <input class="mdc-text-field__input" type="text" placeholder="Media Name" required>
+                                                    <span class="mdc-floating-label">Media Name</span>
+                                                    <span class="mdc-line-ripple"></span>
+                                                </label>
+                                            </div>
+                                            <div class="field">
+                                                <label class="mdc-text-field mdc-text-field--filled">
+                                                    <span class="mdc-text-field__ripple"></span>
+                                                    <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
+                                                    <span class="mdc-floating-label">Vendor</span>
+                                                    <span class="mdc-line-ripple"></span>
+                                                </label>
+                                            </div>
+                                            <div class="field">
+                                                <label class="mdc-text-field mdc-text-field--filled">
+                                                    <span class="mdc-text-field__ripple"></span>
+                                                    <input class="mdc-text-field__input" type="text" placeholder="Catalog Number" required>
+                                                    <span class="mdc-floating-label">Catalog Number</span>
+                                                    <span class="mdc-line-ripple"></span>
+                                                </label>
+                                            </div>
+                                            <div class="field">
+                                                <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                                                  <span class="mdc-text-field__ripple"></span>
+                                                  <select class="mdc-text-field__input" required>
+                                                    <option value="100">100%</option>
+                                                    <option value="50">50%</option>
+                                                    <option value="33">33%</option>
+                                                  </select>
+                                                  <span class="mdc-floating-label">Mixture Ratio</span>
+                                                  <span class="mdc-line-ripple"></span>
+                                                </label>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <button id="addMediaButton" type="button" class="mdc-icon-button">+</button>
+                            
+                            </div>
+                            </div>
+
+                             <div class="serum-supplements-container">
+                             <div class="custom-serum-supplements mdc-layout-grid">
+                              <div class="mdc-layout-grid__cell--span-12">
+                                  <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Serum and Supplements</h2>
+                              </div>
+                              
+                              <div class="mdc-layout-grid__inner">
+                                  <div class="mdc-layout-grid__cell--span-12">
+                                      <div class="numbering-and-field">
+                                          
+                                          <div class="fields-container">
+                                              <div class="field">
+                                                  <label class="mdc-text-field mdc-text-field--filled">
+                                                      <span class="mdc-text-field__ripple"></span>
+                                                      <input class="mdc-text-field__input" type="text" placeholder="Serum/Supplement Name" required>
+                                                      <span class="mdc-floating-label">Name</span>
+                                                      <span class="mdc-line-ripple"></span>
+                                                  </label>
+                                              </div>
+                                              <div class="field">
+                                                  <label class="mdc-text-field mdc-text-field--filled">
+                                                      <span class="mdc-text-field__ripple"></span>
+                                                      <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
+                                                      <span class="mdc-floating-label">Vendor</span>
+                                                      <span class="mdc-line-ripple"></span>
+                                                  </label>
+                                              </div>
+                                              <div class="field">
+                                                  <label class="mdc-text-field mdc-text-field--filled">
+                                                      <span class="mdc-text-field__ripple"></span>
+                                                      <input class="mdc-text-field__input" type="text" placeholder="Catalog Number" required>
+                                                      <span class="mdc-floating-label">Catalog Number</span>
+                                                      <span class="mdc-line-ripple"></span>
+                                                  </label>
+                                              </div>
+                                              <div class="field">
+                                                <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                                                  <span class="mdc-text-field__ripple"></span>
+                                                  <select class="mdc-text-field__input" required>
+                                                    <option value="100">100%</option>
+                                                    <option value="50">50%</option>
+                                                    <option value="33">33%</option>
+                                                  </select>
+                                                  <span class="mdc-floating-label">Mixture Ratio</span>
+                                                  <span class="mdc-line-ripple"></span>
+                                                </label>
+                                              </div>
+                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            
+                          
+                              <button id="addSerumSupplementButton" type="button" class="mdc-icon-button">+</button>
+                             </div>
+                             </div>
+                          
+                          
+                             <div class="growth-factor-container">
+                             <div class="custom-growth-factors mdc-layout-grid">
+                              <div class="mdc-layout-grid__cell--span-12">
+                                  <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Growth factor, cytokine and chemical supplements</h2>
+                              </div>
+                              
+                              <div class="mdc-layout-grid__inner">
+                                  <div class="mdc-layout-grid__cell--span-12">
+                                      <div class="numbering-and-field">
+                                          
                                           <div class="fields-container">
                                               <div class="field">
                                                   <label class="mdc-text-field mdc-text-field--filled">
@@ -267,6 +692,19 @@
                                                       <span class="mdc-line-ripple"></span>
                                                   </label>
                                               </div>
+                                              <div class="field">
+                                                <label class="mdc-text-field mdc-text-field--filled">
+                                                    <span class="mdc-text-field__ripple"></span>
+                                                    <select class="mdc-text-field__input" required>
+                                                        <option value="ng/mL">ng/mL</default>
+                                                        <option value="μM">μM</option>
+                                                        <option value="mM">mM</option>
+                                                    </select>
+                                                    <span class="mdc-floating-label">Unit</span>
+                                                    <span class="mdc-line-ripple"></span>
+                                                </label>
+                                                    </div>
+                                            
                                           </div>
                                       </div>
                                   </div>
@@ -277,7 +715,7 @@
                              </div>
                              </div>
 
-                             &nbsp;
+                             <hr style = "height: 1px; background-color:grey">
                              <h2 style="font-weight: bold; font-size: 20px;">Passaging</h2>
                              <div class="checkbox-container" style="display: flex; align-items: center;">
                               <div class="mdc-checkbox">
@@ -289,18 +727,132 @@
                                       <div class="mdc-checkbox__mixedmark"></div>
                                   </div>
                               </div>
-                              <label for="mediaCheckbox" class="checkbox-label" style="margin-left: 10px;">The cells were passaged followig the addition of the compounds.</label>
-                              <span id="mediaText" style="display:none;"> Passaging fields will appear when this is ticked. </span>
+                              <label for="mediaCheckbox" class="checkbox-label" style="margin-left: 10px; width: 100%; display: block;">The cells were passaged following the addition of the compounds.</label>
+
+                              </div>
+                                                 
+    
+                        
+                          <div class="passaging--container" style="display:none;">
+                          <div class=" mdc-layout-grid">
+                           <div class="mdc-layout-grid__cell--span-12">
+                               <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Passaging media</h2>
+                           </div>
+                           
+                           <div class="mdc-layout-grid__inner">
+                               <div class="mdc-layout-grid__cell--span-12">
+                                   <div class="numbering-and-field">
+                                       
+                                       <div class="fields-container">
+                                           <div class="field">
+                                               <label class="mdc-text-field mdc-text-field--filled">
+                                                   <span class="mdc-text-field__ripple"></span>
+                                                   <input class="mdc-text-field__input" type="text" placeholder="Name" required>
+                                                   <span class="mdc-floating-label">Name</span>
+                                                   <span class="mdc-line-ripple"></span>
+                                               </label>
+                                           </div>
+                                           <div class="field">
+                                               <label class="mdc-text-field mdc-text-field--filled">
+                                                   <span class="mdc-text-field__ripple"></span>
+                                                   <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
+                                                   <span class="mdc-floating-label">Vendor</span>
+                                                   <span class="mdc-line-ripple"></span>
+                                               </label>
+                                           </div>
+                                           <div class="field">
+                                               <label class="mdc-text-field mdc-text-field--filled">
+                                                   <span class="mdc-text-field__ripple"></span>
+                                                   <input class="mdc-text-field__input" type="text" placeholder="Catalog Number" required>
+                                                   <span class="mdc-floating-label">Catalog Number</span>
+                                                   <span class="mdc-line-ripple"></span>
+                                               </label>
+                                           </div>
+                                           <div class="field">
+                                            <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                                              <span class="mdc-text-field__ripple"></span>
+                                              <select class="mdc-text-field__input" required>
+                                                <option value="100">100%</option>
+                                                <option value="50">50%</option>
+                                                <option value="33">33%</option>
+                                              </select>
+                                              <span class="mdc-floating-label">Mixture Ratio</span>
+                                              <span class="mdc-line-ripple"></span>
+                                            </label>
+                                          </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                         
+                           
+                           <button id="addPassagingButton" type="button" class="mdc-icon-button">+</button>
                           </div>
-                          
-                          
-
-
-                             <hr>
-
-                             <button type="submit" id="submitBtn" class="mdc-button mdc-button--raised">Submit</button>
-
                           </div>
+                          &nbsp;
+
+                          <hr style = "height: 1px; background-color:grey">
+                          <h2 style="font-weight: bold; font-size: 20px;">Readout</h2>
+                          <div class="readout--container">
+                            <div class="custom-readout mdc-layout-grid">
+                             <div class="mdc-layout-grid__cell--span-12">
+                                 <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Gene markers</h2>
+                             </div>
+                             
+                             <div class="mdc-layout-grid__inner">
+                                 <div class="mdc-layout-grid__cell--span-12">
+                                     <div class="numbering-and-field">
+                                         
+                                         <div class="fields-container">
+                                             <div class="field">
+                                                 <label class="mdc-text-field mdc-text-field--filled">
+                                                     <span class="mdc-text-field__ripple"></span>
+                                                     <input class="mdc-text-field__input" type="text" placeholder="Name" required>
+                                                     <span class="mdc-floating-label">Name</span>
+                                                     <span class="mdc-line-ripple"></span>
+                                                 </label>
+                                             </div>
+                                             <div class="field">
+                                                 <label class="mdc-text-field mdc-text-field--filled">
+                                                     <span class="mdc-text-field__ripple"></span>
+                                                     <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
+                                                     <span class="mdc-floating-label">% positive cells</span>
+                                                     <span class="mdc-line-ripple"></span>
+                                                 </label>
+                                             </div>
+                                             <div class="field">
+                                                <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                                                  <span class="mdc-text-field__ripple"></span>
+                                                  <select class="mdc-text-field__input" required>
+                                                    <option value="up">↑ upregulated</option>
+                                                    <option value="down">↓ downregulated</option>
+                                                  </select>
+                                                  <span class="mdc-floating-label">Gene enrichment</span>
+                                                  <span class="mdc-line-ripple"></span>
+                                                </label>
+                                              </div>
+                                              
+                                         </div>
+                                     </div>
+                                 </div>
+                            </div>
+                            
+                             <button id="addReadoutButton" type="button" class="mdc-icon-button">+</button>
+                        
+                        </div>
+                      
+
+
+                        </div>
+                        <button id="addStepButton" type="button" class="mdc-icon-button-custom">Add Step</button>
+
+                        
+                        </div>
+                        
+                        
+                        <button type="submit" id="submitBtn" class="mdc-button mdc-button--raised">Submit</button>
+
+                        </div>
 
                         </div>
                     </div>
