@@ -392,16 +392,20 @@ new mdc.radio.MDCRadio(radio);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-const mediaCheckbox = document.getElementById('mediaCheckbox');
-const passagingMenu = document.getElementsByClassName("passaging--container")[0];
+    const checkboxGroups = document.querySelectorAll('.group'); // Select groups containing both checkbox and content container
 
-mediaCheckbox.addEventListener('change', function () {
-    if (mediaCheckbox.checked) {
-        passagingMenu.style.display = 'block';
-    } else {
-        passagingMenu.style.display = 'none';
-    }
-});
+    checkboxGroups.forEach(function(group) {
+        const checkbox = group.querySelector('.media-checkbox'); // Find the checkbox in this group
+        const contentContainer = group.querySelector('.passaging--container'); // Find the corresponding content container
+
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                contentContainer.style.display = 'block';
+            } else {
+                contentContainer.style.display = 'none';
+            }
+        });
+    });
 });
   
   document.addEventListener('DOMContentLoaded', function () {
@@ -539,7 +543,7 @@ mediaCheckbox.addEventListener('change', function () {
                             </div>
                             
 
-                             <button id="addMediaButton" type="button" class="mdc-icon-button">+</button>
+                            <button type="button" class="addMediaButton">+</button>
                             
                             </div>
                             </div>
@@ -598,7 +602,7 @@ mediaCheckbox.addEventListener('change', function () {
                               </div>
                             
                           
-                              <button id="addSerumSupplementButton" type="button" class="mdc-icon-button">+</button>
+                              <button type="button" class="addSerumSupplementButton">+</button>
                              </div>
                              </div>
                           
@@ -665,85 +669,89 @@ mediaCheckbox.addEventListener('change', function () {
                               </div>
                             
                           
-                              <button id="addGrowthFactorButton" type="button" class="mdc-icon-button">+</button>
+                              <button type="button" class="addGrowthFactorButton">+</button>
                              </div>
                              </div>
+                             
 
                              <hr style = "height: 1px; background-color:grey">
                              <h2 style="font-weight: bold; font-size: 20px;">Passaging</h2>
+                             <div class="group">
                              <div class="checkbox-container" style="display: flex; align-items: center;">
-                              <div class="mdc-checkbox">
-                                  <input type="checkbox" id="mediaCheckbox" class="mdc-checkbox__native-control"/>
-                                  <div class="mdc-checkbox__background">
-                                      <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                                          <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
-                                      </svg>
-                                      <div class="mdc-checkbox__mixedmark"></div>
-                                  </div>
-                              </div>
-                              <label for="mediaCheckbox" class="checkbox-label" style="margin-left: 10px; width: 100%; display: block;">The cells were passaged following the addition of the compounds.</label>
-
-                              </div>
+                                <div class="mdc-checkbox">
+                                    <input type="checkbox" class="mdc-checkbox__native-control media-checkbox"/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                </div>
+                                <label class="checkbox-label" style="margin-left: 10px; width: 100%; display: block;">The cells were passaged following the addition of the compounds.</label>
+                            </div>
                                                  
     
                         
-                          <div class="passaging--container" style="display:none;">
-                          <div class=" mdc-layout-grid">
-                           <div class="mdc-layout-grid__cell--span-12">
-                               <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Passaging media</h2>
-                           </div>
-                           
-                           <div class="mdc-layout-grid__inner">
-                               <div class="mdc-layout-grid__cell--span-12">
-                                   <div class="numbering-and-field">
-                                       
-                                       <div class="fields-container">
-                                           <div class="field">
-                                               <label class="mdc-text-field mdc-text-field--filled">
-                                                   <span class="mdc-text-field__ripple"></span>
-                                                   <input class="mdc-text-field__input" type="text" placeholder="Name" required>
-                                                   <span class="mdc-floating-label">Name</span>
-                                                   <span class="mdc-line-ripple"></span>
-                                               </label>
-                                           </div>
-                                           <div class="field">
-                                               <label class="mdc-text-field mdc-text-field--filled">
-                                                   <span class="mdc-text-field__ripple"></span>
-                                                   <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
-                                                   <span class="mdc-floating-label">Vendor</span>
-                                                   <span class="mdc-line-ripple"></span>
-                                               </label>
-                                           </div>
-                                           <div class="field">
-                                               <label class="mdc-text-field mdc-text-field--filled">
-                                                   <span class="mdc-text-field__ripple"></span>
-                                                   <input class="mdc-text-field__input" type="text" placeholder="Catalog Number" required>
-                                                   <span class="mdc-floating-label">Catalog Number</span>
-                                                   <span class="mdc-line-ripple"></span>
-                                               </label>
-                                           </div>
-                                           <div class="field">
-                                            <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
-                                              <span class="mdc-text-field__ripple"></span>
-                                              <select class="mdc-text-field__input" required>
-                                                <option value="100">100%</option>
-                                                <option value="50">50%</option>
-                                                <option value="33">33%</option>
-                                              </select>
-                                              <span class="mdc-floating-label">Mixture Ratio</span>
-                                              <span class="mdc-line-ripple"></span>
-                                            </label>
-                                          </div>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                         
-                           
-                           <button id="addPassagingButton" type="button" class="mdc-icon-button">+</button>
-                          </div>
-                          </div>
-                          &nbsp;
+                              <div class="passaging--container" style="display:none;">
+                                <div class=" mdc-layout-grid">
+                                 <div class="mdc-layout-grid__cell--span-12">
+                                     <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Passaging media</h2>
+                                 </div>
+                                 
+                                 <div class="mdc-layout-grid__inner">
+                                     <div class="mdc-layout-grid__cell--span-12">
+                                         <div class="numbering-and-field">
+                                             
+                                             <div class="fields-container">
+                                                 <div class="field">
+                                                     <label class="mdc-text-field mdc-text-field--filled">
+                                                         <span class="mdc-text-field__ripple"></span>
+                                                         <input class="mdc-text-field__input" type="text" placeholder="Name" required>
+                                                         <span class="mdc-floating-label">Name</span>
+                                                         <span class="mdc-line-ripple"></span>
+                                                     </label>
+                                                 </div>
+                                                 <div class="field">
+                                                     <label class="mdc-text-field mdc-text-field--filled">
+                                                         <span class="mdc-text-field__ripple"></span>
+                                                         <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
+                                                         <span class="mdc-floating-label">Vendor</span>
+                                                         <span class="mdc-line-ripple"></span>
+                                                     </label>
+                                                 </div>
+                                                 <div class="field">
+                                                     <label class="mdc-text-field mdc-text-field--filled">
+                                                         <span class="mdc-text-field__ripple"></span>
+                                                         <input class="mdc-text-field__input" type="text" placeholder="Catalog Number" required>
+                                                         <span class="mdc-floating-label">Catalog Number</span>
+                                                         <span class="mdc-line-ripple"></span>
+                                                     </label>
+                                                 </div>
+                                                 <div class="field">
+                                                  <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                                                    <span class="mdc-text-field__ripple"></span>
+                                                    <select class="mdc-text-field__input" required>
+                                                      <option value="100">100%</option>
+                                                      <option value="50">50%</option>
+                                                      <option value="33">33%</option>
+                                                    </select>
+                                                    <span class="mdc-floating-label">Mixture Ratio</span>
+                                                    <span class="mdc-line-ripple"></span>
+                                                  </label>
+                                                </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                               
+                                 
+                                 <button type="button" class="addPassagingButton">+</button>
+                                </div>
+                                </div>
+                                </div>
+                            
+                                &nbsp;
+                          
 
                           <hr style = "height: 1px; background-color:grey">
                           <h2 style="font-weight: bold; font-size: 20px;">Readout</h2>
@@ -791,7 +799,7 @@ mediaCheckbox.addEventListener('change', function () {
                                  </div>
                             </div>
                             
-                             <button id="addReadoutButton" type="button" class="mdc-icon-button">+</button>
+                            <button type="button" class="addReadoutButton">+</button>
                         
                         </div>
 
@@ -803,11 +811,25 @@ mediaCheckbox.addEventListener('change', function () {
        // Append the new step container before the add button
        addStepButton.parentNode.insertBefore(newStepContainer, addStepButton);
 
-       // Re-initialize Material Design Components for the new elements
-       initializeMDCTextFields();
+       
 
-       stepCount = stepCount + 1
+       stepCount = stepCount + 1;
    });
+
+   //Use event delegation for handling changes on dynamically added checkboxes
+    document.body.addEventListener('change', function (event) {
+        if (event.target.classList.contains('media-checkbox')) {
+            const passagingContainer = event.target.closest('.step-container').querySelector('.passaging--container');
+            if (event.target.checked) {
+                passagingContainer.style.display = 'block';
+            } else {
+                passagingContainer.style.display = 'none';
+            }
+        }
+    });
+
+    // Re-initialize Material Design Components if necessary
+    initializeMDCTextFields();
 });
 
 
