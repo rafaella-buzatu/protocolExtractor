@@ -6,6 +6,417 @@ function initializeMDCTextFields() {
   });
 }
 
+  document.addEventListener('DOMContentLoaded', function () {
+
+    initializeMDCTextFields(); // Initialize text fields on page load
+
+
+     
+    // Attach the event listener to the body
+    document.body.addEventListener('click', function (event) {
+        const target = event.target;
+
+        // Check if the clicked element is one of the buttons
+        if (target.classList.contains('addMediaButton')) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            console.log('making function');
+
+            // Create the container for the new field set
+            const newFieldSet = document.createElement('div');
+            newFieldSet.classList.add('field-set');
+            newFieldSet.innerHTML = `
+            
+            <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell--span-12">
+                <div class="numbering-and-field">
+                    <div class="fields-container">
+                        <div class="field">
+                            <label class="mdc-text-field mdc-text-field--filled">
+                                <span class="mdc-text-field__ripple"></span>
+                                <input class="mdc-text-field__input" type="text" placeholder="Media Name">
+                                <span class="mdc-floating-label" id="name-floating-label">Media Name</span>
+                                <span class="mdc-line-ripple"></span>
+                            </label>
+                        </div>
+                        <div class="field">
+                            <label class="mdc-text-field mdc-text-field--filled">
+                                <span class="mdc-text-field__ripple"></span>
+                                <input class="mdc-text-field__input" type="text" placeholder="Vendor">
+                                <span class="mdc-floating-label" id="name-floating-label">Vendor</span>
+                                <span class="mdc-line-ripple"></span>
+                            </label>
+                        </div>
+                        <div class="field">
+                            <label class="mdc-text-field mdc-text-field--filled">
+                                <span class="mdc-text-field__ripple"></span>
+                                <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
+                                <span class="mdc-floating-label" id="name-floating-label">Catalog Number</span>
+                                <span class="mdc-line-ripple"></span>
+                            </label>
+                        </div>
+                        <div class="field">
+                        <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                        <span class="mdc-text-field__ripple"></span>
+                        <select class="mdc-text-field__input">
+                          <option value="100">100%</option>
+                          <option value="50">50%</option>
+                          <option value="33">33%</option>
+                        </select>
+                        <span class="mdc-floating-label">Mixture Ratio</span>
+                        <span class="mdc-line-ripple"></span>
+                      </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            `;
+
+            // Append the new field set in the desired location, e.g., before the target button
+            target.parentNode.insertBefore(newFieldSet, target);
+
+            // Re-initialize MDC text fields to style the newly added fields
+            initializeMDCTextFields();
+        }
+    });
+});
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    initializeMDCTextFields(); // Initialize text fields on page load
+
+
+     
+    // Attach the event listener to the body
+    document.body.addEventListener('click', function (event) {
+        const target = event.target;
+
+        // Check if the clicked element is one of the buttons
+        if (target.classList.contains('addSerumSupplementButton')) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            console.log('making function');
+
+            // Create the container for the new field set
+            const newFieldSet = document.createElement('div');
+            newFieldSet.classList.add('field-set');
+            newFieldSet.innerHTML = `
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell--span-12">
+                    <div class="numbering-and-field">
+                        <div class="fields-container">
+                            <div class="field">
+                                <label class="mdc-text-field mdc-text-field--filled">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <input class="mdc-text-field__input" type="text" placeholder="Name">
+                                    <span class="mdc-floating-label">Name</span>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </div>
+                            <div class="field">
+                                <label class="mdc-text-field mdc-text-field--filled">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <input class="mdc-text-field__input" type="text" placeholder="Vendor">
+                                    <span class="mdc-floating-label">Vendor</span>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </div>
+                            <div class="field">
+                                <label class="mdc-text-field mdc-text-field--filled">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
+                                    <span class="mdc-floating-label">Catalog Number</span>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </div>
+                            <div class="field">
+                            <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                            <span class="mdc-text-field__ripple"></span>
+                            <select class="mdc-text-field__input">
+                              <option value="100">100%</option>
+                              <option value="50">50%</option>
+                              <option value="33">33%</option>
+                            </select>
+                            <span class="mdc-floating-label">Mixture Ratio</span>
+                            <span class="mdc-line-ripple"></span>
+                          </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+            // Append the new field set in the desired location, e.g., before the target button
+            target.parentNode.insertBefore(newFieldSet, target);
+
+            // Re-initialize MDC text fields to style the newly added fields
+            initializeMDCTextFields();
+        }
+    });
+});
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    initializeMDCTextFields(); // Initialize text fields on page load
+
+
+     
+    // Attach the event listener to the body
+    document.body.addEventListener('click', function (event) {
+        const target = event.target;
+
+        // Check if the clicked element is one of the buttons
+        if (target.classList.contains('addGrowthFactorButton')) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            console.log('making function');
+
+            // Create the container for the new field set
+            const newFieldSet = document.createElement('div');
+            newFieldSet.classList.add('field-set');
+            newFieldSet.innerHTML = `
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell--span-12">
+                    <div class="numbering-and-field">
+                        <div class="fields-container">
+                          <div class="field">
+                              <label class="mdc-text-field mdc-text-field--filled">
+                                  <span class="mdc-text-field__ripple"></span>
+                                  <input class="mdc-text-field__input" type="text" placeholder="Name">
+                                  <span class="mdc-floating-label">Name</span>
+                                  <span class="mdc-line-ripple"></span>
+                              </label>
+                          </div>
+                          <div class="field">
+                              <label class="mdc-text-field mdc-text-field--filled">
+                                  <span class="mdc-text-field__ripple"></span>
+                                  <input class="mdc-text-field__input" type="text" placeholder="Vendor">
+                                  <span class="mdc-floating-label">Vendor</span>
+                                  <span class="mdc-line-ripple"></span>
+                              </label>
+                          </div>
+                          <div class="field">
+                              <label class="mdc-text-field mdc-text-field--filled">
+                                  <span class="mdc-text-field__ripple"></span>
+                                  <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
+                                  <span class="mdc-floating-label">Catalog Number</span>
+                                  <span class="mdc-line-ripple"></span>
+                              </label>
+                          </div>
+                          <div class="field">
+                              <label class="mdc-text-field mdc-text-field--filled">
+                                  <span class="mdc-text-field__ripple"></span>
+                                  <input class="mdc-text-field__input" type="text" placeholder="Final concentration<">
+                                  <span class="mdc-floating-label">Final concentration</span>
+                                  <span class="mdc-line-ripple"></span>
+                              </label>
+                          </div>
+                          <div class="field">
+                                <label class="mdc-text-field mdc-text-field--filled">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <select class="mdc-text-field__input">
+                                        <option value="ng/mL">ng/mL</default>
+                                        <option value="μM">μM</option>
+                                        <option value="mM">mM</option>
+                                    </select>
+                                    <span class="mdc-floating-label">Unit</span>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                                    </div>
+                                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+            // Append the new field set in the desired location, e.g., before the target button
+            target.parentNode.insertBefore(newFieldSet, target);
+
+            // Re-initialize MDC text fields to style the newly added fields
+            initializeMDCTextFields();
+        }
+    });
+});
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        initializeMDCTextFields(); // Initialize text fields on page load
+
+    
+         
+        // Attach the event listener to the body
+        document.body.addEventListener('click', function (event) {
+            const target = event.target;
+    
+            // Check if the clicked element is one of the buttons
+            if (target.classList.contains('addPassagingButton')) {
+                event.preventDefault(); // Prevent the default form submission behavior
+                console.log('making function');
+    
+                // Create the container for the new field set
+                const newFieldSet = document.createElement('div');
+                newFieldSet.classList.add('field-set');
+                newFieldSet.innerHTML = `
+                <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell--span-12">
+                    <div class="numbering-and-field">
+                        <div class="fields-container">
+                            <div class="field">
+                                <label class="mdc-text-field mdc-text-field--filled">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <input class="mdc-text-field__input" type="text" placeholder="Name">
+                                    <span class="mdc-floating-label">Name</span>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </div>
+                            <div class="field">
+                                <label class="mdc-text-field mdc-text-field--filled">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <input class="mdc-text-field__input" type="text" placeholder="Vendor">
+                                    <span class="mdc-floating-label">Vendor</span>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </div>
+                            <div class="field">
+                                <label class="mdc-text-field mdc-text-field--filled">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
+                                    <span class="mdc-floating-label">Catalog Number</span>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </div>
+                            <div class="field">
+                            <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                              <span class="mdc-text-field__ripple"></span>
+                              <select class="mdc-text-field__input">
+                                <option value="100">100%</option>
+                                <option value="50">50%</option>
+                                <option value="33">33%</option>
+                              </select>
+                              <span class="mdc-floating-label">Mixture Ratio</span>
+                              <span class="mdc-line-ripple"></span>
+                            </label>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+    
+                // Append the new field set in the desired location, e.g., before the target button
+                target.parentNode.insertBefore(newFieldSet, target);
+    
+                // Re-initialize MDC text fields to style the newly added fields
+                initializeMDCTextFields();
+            }
+        });
+    });
+  
+    document.addEventListener('DOMContentLoaded', function () {
+
+        initializeMDCTextFields(); // Initialize text fields on page load
+
+    
+         
+        // Attach the event listener to the body
+        document.body.addEventListener('click', function (event) {
+            const target = event.target;
+    
+            // Check if the clicked element is one of the buttons
+            if (target.classList.contains('addReadoutButton')) {
+                event.preventDefault(); // Prevent the default form submission behavior
+                console.log('making function');
+    
+                // Create the container for the new field set
+                const newFieldSet = document.createElement('div');
+                newFieldSet.classList.add('field-set');
+                newFieldSet.innerHTML = `
+                    <div class="mdc-layout-grid__inner">
+                        <div class="mdc-layout-grid__cell--span-12">
+                            <div class="numbering-and-field">
+                                <div class="fields-container">
+                                    <div class="field">
+                                        <label class="mdc-text-field mdc-text-field--filled">
+                                            <span class="mdc-text-field__ripple"></span>
+                                            <input class="mdc-text-field__input" type="text" placeholder="Name">
+                                            <span class="mdc-floating-label">Name</span>
+                                            <span class="mdc-line-ripple"></span>
+                                        </label>
+                                    </div>
+                                    <div class="field">
+                                        <label class="mdc-text-field mdc-text-field--filled">
+                                            <span class="mdc-text-field__ripple"></span>
+                                            <input class="mdc-text-field__input" type="text" placeholder="% positive cells">
+                                            <span class="mdc-floating-label">% positive cells</span>
+                                            <span class="mdc-line-ripple"></span>
+                                        </label>
+                                    </div>
+                                    <div class="field">
+                                        <label class="mdc-text-field mdc-text-field--filled" style="width:100%">
+                                            <span class="mdc-text-field__ripple"></span>
+                                            <select class="mdc-text-field__input">
+                                                <option value="up">↑ upregulated</option>
+                                                <option value="down">↓ downregulated</option>
+                                            </select>
+                                            <span class="mdc-floating-label">Gene enrichment</span>
+                                            <span class="mdc-line-ripple"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+    
+                // Append the new field set in the desired location, e.g., before the target button
+                target.parentNode.insertBefore(newFieldSet, target);
+    
+                // Re-initialize MDC text fields to style the newly added fields
+                initializeMDCTextFields();
+            }
+        });
+    });
+    
+
+// Attach MDCTextField to all text fields
+const textFields = document.querySelectorAll('.mdc-text-field');
+textFields.forEach(textField => {
+    mdc.textField.MDCTextField.attachTo(textField);
+});
+
+  
+var radios = document.querySelectorAll('.mdc-radio');
+for (var i = 0, radio; radio = radios[i]; i++) {
+new mdc.radio.MDCRadio(radio);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+const mediaCheckbox = document.getElementById('mediaCheckbox');
+const passagingMenu = document.getElementsByClassName("passaging--container")[0];
+
+mediaCheckbox.addEventListener('change', function () {
+    if (mediaCheckbox.checked) {
+        passagingMenu.style.display = 'block';
+    } else {
+        passagingMenu.style.display = 'none';
+    }
+});
+});
+  
+  document.addEventListener('DOMContentLoaded', function () {
+      const step0Checkbox = document.getElementById('step0Checkbox');
+      const step0Menu = document.getElementsByClassName('step0-container')[0];
+      
+      step0Checkbox.addEventListener('change', function () {
+          if (step0Checkbox.checked) {
+              step0Menu.style.display = 'block';
+          } else {
+              step0Menu.style.display = 'none';
+          }
+      });
+    });
+  
 
   document.addEventListener('DOMContentLoaded', function () {
     let stepCount = document.querySelectorAll('.step-container').length;
@@ -449,369 +860,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   
-  
-  document.addEventListener('DOMContentLoaded', function () {
-    const addButton = document.getElementById('addMediaButton');
-    initializeMDCTextFields();
-    addButton.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-  
-  
-        // Create the container for the new field set
-        const newFieldSet = document.createElement('div');
-        newFieldSet.classList.add('field-set');
-        newFieldSet.innerHTML = `
-            
-        <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell--span-12">
-            <div class="numbering-and-field">
-                <div class="fields-container">
-                    <div class="field">
-                        <label class="mdc-text-field mdc-text-field--filled">
-                            <span class="mdc-text-field__ripple"></span>
-                            <input class="mdc-text-field__input" type="text" placeholder="Media Name">
-                            <span class="mdc-floating-label" id="name-floating-label">Media Name</span>
-                            <span class="mdc-line-ripple"></span>
-                        </label>
-                    </div>
-                    <div class="field">
-                        <label class="mdc-text-field mdc-text-field--filled">
-                            <span class="mdc-text-field__ripple"></span>
-                            <input class="mdc-text-field__input" type="text" placeholder="Vendor">
-                            <span class="mdc-floating-label" id="name-floating-label">Vendor</span>
-                            <span class="mdc-line-ripple"></span>
-                        </label>
-                    </div>
-                    <div class="field">
-                        <label class="mdc-text-field mdc-text-field--filled">
-                            <span class="mdc-text-field__ripple"></span>
-                            <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
-                            <span class="mdc-floating-label" id="name-floating-label">Catalog Number</span>
-                            <span class="mdc-line-ripple"></span>
-                        </label>
-                    </div>
-                    <div class="field">
-                    <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
-                    <span class="mdc-text-field__ripple"></span>
-                    <select class="mdc-text-field__input">
-                      <option value="100">100%</option>
-                      <option value="50">50%</option>
-                      <option value="33">33%</option>
-                    </select>
-                    <span class="mdc-floating-label">Mixture Ratio</span>
-                    <span class="mdc-line-ripple"></span>
-                  </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        `;
-  
-        // Append the new field set before the addButton
-        addButton.parentNode.insertBefore(newFieldSet, addButton);
-        initializeMDCTextFields();
-    });
-  });
-  
-  document.addEventListener('DOMContentLoaded', function () {
-    const addButton = document.getElementById('addSerumSupplementButton'); // Ensure this ID matches your button's ID
-    initializeMDCTextFields(); // Initialize text fields on page load
-  
-    addButton.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-        // Create the container for the new field set
-        const newFieldSet = document.createElement('div');
-        newFieldSet.classList.add('field-set');
-        newFieldSet.innerHTML = `
-            <div class="mdc-layout-grid__inner">
-                <div class="mdc-layout-grid__cell--span-12">
-                    <div class="numbering-and-field">
-                        <div class="fields-container">
-                            <div class="field">
-                                <label class="mdc-text-field mdc-text-field--filled">
-                                    <span class="mdc-text-field__ripple"></span>
-                                    <input class="mdc-text-field__input" type="text" placeholder="Name">
-                                    <span class="mdc-floating-label">Name</span>
-                                    <span class="mdc-line-ripple"></span>
-                                </label>
-                            </div>
-                            <div class="field">
-                                <label class="mdc-text-field mdc-text-field--filled">
-                                    <span class="mdc-text-field__ripple"></span>
-                                    <input class="mdc-text-field__input" type="text" placeholder="Vendor">
-                                    <span class="mdc-floating-label">Vendor</span>
-                                    <span class="mdc-line-ripple"></span>
-                                </label>
-                            </div>
-                            <div class="field">
-                                <label class="mdc-text-field mdc-text-field--filled">
-                                    <span class="mdc-text-field__ripple"></span>
-                                    <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
-                                    <span class="mdc-floating-label">Catalog Number</span>
-                                    <span class="mdc-line-ripple"></span>
-                                </label>
-                            </div>
-                            <div class="field">
-                            <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
-                            <span class="mdc-text-field__ripple"></span>
-                            <select class="mdc-text-field__input">
-                              <option value="100">100%</option>
-                              <option value="50">50%</option>
-                              <option value="33">33%</option>
-                            </select>
-                            <span class="mdc-floating-label">Mixture Ratio</span>
-                            <span class="mdc-line-ripple"></span>
-                          </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-  
-        // Append the new field set in the desired location, e.g., before the addButton
-        addButton.parentNode.insertBefore(newFieldSet, addButton);
-  
-        // Re-initialize MDC text fields to style the newly added fields
-        initializeMDCTextFields();
-    });
-  });
-  
-  
-  document.addEventListener('DOMContentLoaded', function () {
-    const addButton = document.getElementById('addGrowthFactorButton'); // Ensure this ID matches your button's ID
-    initializeMDCTextFields(); // Initialize text fields on page load
-  
-    addButton.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-        // Create the container for the new field set
-        const newFieldSet = document.createElement('div');
-        newFieldSet.classList.add('field-set');
-        newFieldSet.innerHTML = `
-            <div class="mdc-layout-grid__inner">
-                <div class="mdc-layout-grid__cell--span-12">
-                    <div class="numbering-and-field">
-                        <div class="fields-container">
-                          <div class="field">
-                              <label class="mdc-text-field mdc-text-field--filled">
-                                  <span class="mdc-text-field__ripple"></span>
-                                  <input class="mdc-text-field__input" type="text" placeholder="Name">
-                                  <span class="mdc-floating-label">Name</span>
-                                  <span class="mdc-line-ripple"></span>
-                              </label>
-                          </div>
-                          <div class="field">
-                              <label class="mdc-text-field mdc-text-field--filled">
-                                  <span class="mdc-text-field__ripple"></span>
-                                  <input class="mdc-text-field__input" type="text" placeholder="Vendor">
-                                  <span class="mdc-floating-label">Vendor</span>
-                                  <span class="mdc-line-ripple"></span>
-                              </label>
-                          </div>
-                          <div class="field">
-                              <label class="mdc-text-field mdc-text-field--filled">
-                                  <span class="mdc-text-field__ripple"></span>
-                                  <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
-                                  <span class="mdc-floating-label">Catalog Number</span>
-                                  <span class="mdc-line-ripple"></span>
-                              </label>
-                          </div>
-                          <div class="field">
-                              <label class="mdc-text-field mdc-text-field--filled">
-                                  <span class="mdc-text-field__ripple"></span>
-                                  <input class="mdc-text-field__input" type="text" placeholder="Final concentration<">
-                                  <span class="mdc-floating-label">Final concentration</span>
-                                  <span class="mdc-line-ripple"></span>
-                              </label>
-                          </div>
-                          <div class="field">
-                                <label class="mdc-text-field mdc-text-field--filled">
-                                    <span class="mdc-text-field__ripple"></span>
-                                    <select class="mdc-text-field__input">
-                                        <option value="ng/mL">ng/mL</default>
-                                        <option value="μM">μM</option>
-                                        <option value="mM">mM</option>
-                                    </select>
-                                    <span class="mdc-floating-label">Unit</span>
-                                    <span class="mdc-line-ripple"></span>
-                                </label>
-                                    </div>
-                                                
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-  
-        // Append the new field set in the desired location, e.g., before the addButton
-        addButton.parentNode.insertBefore(newFieldSet, addButton);
-  
-        // Re-initialize MDC text fields to style the newly added fields
-        initializeMDCTextFields();
-    });
-  });
-  
-  
-  document.addEventListener('DOMContentLoaded', function () {
-      const addButton = document.getElementById('addPassagingButton'); // Ensure this ID matches your button's ID
-      initializeMDCTextFields(); // Initialize text fields on page load
-    
-      addButton.addEventListener('click', function (event) {
-          event.preventDefault(); // Prevent the default form submission behavior
-    
-      
-          // Create the container for the new field set
-          const newFieldSet = document.createElement('div');
-          newFieldSet.classList.add('field-set');
-          newFieldSet.innerHTML = `
-          <div class="mdc-layout-grid__inner">
-          <div class="mdc-layout-grid__cell--span-12">
-              <div class="numbering-and-field">
-                  <div class="fields-container">
-                      <div class="field">
-                          <label class="mdc-text-field mdc-text-field--filled">
-                              <span class="mdc-text-field__ripple"></span>
-                              <input class="mdc-text-field__input" type="text" placeholder="Name">
-                              <span class="mdc-floating-label">Name</span>
-                              <span class="mdc-line-ripple"></span>
-                          </label>
-                      </div>
-                      <div class="field">
-                          <label class="mdc-text-field mdc-text-field--filled">
-                              <span class="mdc-text-field__ripple"></span>
-                              <input class="mdc-text-field__input" type="text" placeholder="Vendor">
-                              <span class="mdc-floating-label">Vendor</span>
-                              <span class="mdc-line-ripple"></span>
-                          </label>
-                      </div>
-                      <div class="field">
-                          <label class="mdc-text-field mdc-text-field--filled">
-                              <span class="mdc-text-field__ripple"></span>
-                              <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
-                              <span class="mdc-floating-label">Catalog Number</span>
-                              <span class="mdc-line-ripple"></span>
-                          </label>
-                      </div>
-                      <div class="field">
-                      <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
-                        <span class="mdc-text-field__ripple"></span>
-                        <select class="mdc-text-field__input">
-                          <option value="100">100%</option>
-                          <option value="50">50%</option>
-                          <option value="33">33%</option>
-                        </select>
-                        <span class="mdc-floating-label">Mixture Ratio</span>
-                        <span class="mdc-line-ripple"></span>
-                      </label>
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      `;
-    
-          // Append the new field set in the desired location, e.g., before the addButton
-          addButton.parentNode.insertBefore(newFieldSet, addButton);
-    
-          // Re-initialize MDC text fields to style the newly added fields
-          initializeMDCTextFields();
-      });
-    });
-  
-    document.addEventListener('DOMContentLoaded', function () {
-      const addButton = document.getElementById('addReadoutButton'); // Ensure this ID matches your button's ID
-      initializeMDCTextFields(); // Initialize text fields on page load
-    
-      addButton.addEventListener('click', function (event) {
-          event.preventDefault(); // Prevent the default form submission behavior
-    
-      
-          // Create the container for the new field set
-          const newFieldSet = document.createElement('div');
-          newFieldSet.classList.add('field-set');
-          newFieldSet.innerHTML = `
-            
-          <div class="mdc-layout-grid__inner">
-          <div class="mdc-layout-grid__cell--span-12">
-              <div class="numbering-and-field">
-                  <div class="fields-container">
-                      <div class="field">
-                          <label class="mdc-text-field mdc-text-field--filled">
-                              <span class="mdc-text-field__ripple"></span>
-                              <input class="mdc-text-field__input" type="text" placeholder="Name">
-                              <span class="mdc-floating-label">Name</span>
-                              <span class="mdc-line-ripple"></span>
-                          </label>
-                      </div>
-                      <div class="field">
-                          <label class="mdc-text-field mdc-text-field--filled">
-                              <span class="mdc-text-field__ripple"></span>
-                              <input class="mdc-text-field__input" type="text" placeholder="% positive cells" >
-                              <span class="mdc-floating-label">% positive cells</span>
-                              <span class="mdc-line-ripple"></span>
-                          </label>
-                      </div>
-                      <div class="field">
-                         <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
-                           <span class="mdc-text-field__ripple"></span>
-                           <select class="mdc-text-field__input" >
-                             <option value="up">↑ upregulated</option>
-                             <option value="down">↓ downregulated</option>
-                           </select>
-                           <span class="mdc-floating-label">Gene enrichment</span>
-                           <span class="mdc-line-ripple"></span>
-                         </label>
-                       </div>
-                       
-                  </div>
-              </div>
-          </div>
-     </div>
-      `;
-    
-          // Append the new field set in the desired location, e.g., before the addButton
-          addButton.parentNode.insertBefore(newFieldSet, addButton);
-    
-          // Re-initialize MDC text fields to style the newly added fields
-          initializeMDCTextFields();
-      });
-    });
-  
-  const textFields = document.querySelectorAll('.mdc-text-field');
-  for (const textField of textFields) {
-    mdc.textField.MDCTextField.attachTo(textField);
-  }
-  
-  
-  var radios = document.querySelectorAll('.mdc-radio');
-  for (var i = 0, radio; radio = radios[i]; i++) {
-    new mdc.radio.MDCRadio(radio);
-  }
-  
-  document.addEventListener('DOMContentLoaded', function () {
-    const mediaCheckbox = document.getElementById('mediaCheckbox');
-    const passagingMenu = document.getElementsByClassName("passaging--container")[0];
-  
-    mediaCheckbox.addEventListener('change', function () {
-        if (mediaCheckbox.checked) {
-          passagingMenu.style.display = 'block';
-        } else {
-          passagingMenu.style.display = 'none';
-        }
-    });
-  });
-  
-  document.addEventListener('DOMContentLoaded', function () {
-      const step0Checkbox = document.getElementById('step0Checkbox');
-      const step0Menu = document.getElementsByClassName('step0-container')[0];
-      
-      step0Checkbox.addEventListener('change', function () {
-          if (step0Checkbox.checked) {
-              step0Menu.style.display = 'block';
-          } else {
-              step0Menu.style.display = 'none';
-          }
-      });
-    });
   
