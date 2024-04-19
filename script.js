@@ -770,7 +770,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                  <label class="mdc-text-field mdc-text-field--filled">
                                                      <span class="mdc-text-field__ripple"></span>
                                                      <input class="mdc-text-field__input" type="text" placeholder="Name" required>
-                                                     <span class="mdc-floating-label">Name</span>
+                                                     <span class="mdc-floating-label -float-above">Name</span>
                                                      <span class="mdc-line-ripple"></span>
                                                  </label>
                                              </div>
@@ -810,7 +810,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
        // Append the new step container before the add button
        addStepButton.parentNode.insertBefore(newStepContainer, addStepButton);
-
+       initializeMDCTextFields();
        
 
        stepCount = stepCount + 1;
