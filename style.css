@@ -192,4 +192,56 @@ hr {
   border: none;             /* Removes any border */
   align-items: center;;
 }
+#submitBtn-protocol {
+  font-size: 18px;          /* Larger font size */
+  padding: 10px 20px;       /* Larger padding for a bigger button */
+  width: 50%;               /* Sets the button width to 50% of its parent container */
+  margin-top: 20px;         /* Adds space above the button */
+  margin-bottom: 30px;      /* Adds space below the button */
+  background-color: #06123b; /* Changes the button color to dark blue */
+  color: white;             /* Changes the text color to white */
+  border: none;             /* Removes any border */
+  align-items: center;;
+}
 
+.button-style {
+  background-color: #06123b; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.index-container {
+  display: flex; /* Uses flexbox to align children side by side */
+  justify-content: space-around; /* Distributes space between the children */
+  padding: 20px;
+}
+.index-section {
+  flex: 1; /* Allows each section to take equal width */
+  margin: 10px;
+  padding: 10px;
+  text-align: center; /* Centers the text and button in the section */
+}
+
+.sign-up-container {
+  display: flex; /* Enable flex layout */
+  align-items: start; /* Align items to the start of the flex container */
+  justify-content: space-between; /* Space between the text and image */
+}
+
+.sign-up-text-content {
+  flex: 1; /* Allows text content to fill the available space */
+  padding-right: 50px; /* Optional: Adds some space between text and image */
+}
+
+.sign-up-image-container {
+  flex: 0 0 auto; /* Prevents the image container from growing or shrinking */
+  padding-left: 20px;
+}

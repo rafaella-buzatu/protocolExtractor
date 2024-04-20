@@ -424,7 +424,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.addEventListener('DOMContentLoaded', function () {
     let stepCount = document.querySelectorAll('.step-container').length;
-    console.log(stepCount);
     const addStepButton = document.getElementById('addStepButton');
 
     addStepButton.addEventListener('click', function (event) {
