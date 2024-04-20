@@ -7,60 +7,77 @@ function downloadObjectAsJson(exportObj, exportName) {
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
 }
-console.log(document.getElementById('survey-form'));
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('survey-form');
-    if (form) {
-        form.addEventListener('submit', function(event) {
-        console.log('Form submitted');
-        event.preventDefault(); // Prevent the default form submission behavior
+    
+    form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
     
     const formData = {
         participantID: document.getElementById('participantID').value,
         publicationID: document.getElementById('publicationID').value,
-    }
+        cellLines: [],
+        mediaDetails: [],
+        growthFactors: [],
+        passaging: [],
+        readoutDetails: []
+    };
+
+    
+    document.querySelectorAll('.cell-line-set').forEach(set => {
+        const cellLine = {
+            cellLineType: set.querySelector('input[type="radio"]:checked') ? set.querySelector('input[type="radio"]:checked').nextElementSibling.textContent : '',
+            cellLineName: set.querySelector('.cell-line-name-field .mdc-text-field__input').value
+        };
+        formData.cellLines.push(cellLine);
+    });
+
+    // Example for basal media and other repeating groups
+    document.querySelectorAll('.basal-media-container .fields-container').forEach(container => {
+        const mediaDetails = {
+            mediaName: container.querySelector('input[placeholder="Media Name"]').value,
+            vendor: container.querySelector('input[placeholder="Vendor"]').value,
+            catalogNumber: container.querySelector('input[placeholder="Catalog Number"]').value,
+            mixtureRatio: container.querySelector('select').value
+        };
+        formData.mediaDetails.push(mediaDetails);
+    });
+    // Example for growth factors, etc.
+    document.querySelectorAll('.growth-factor-container .fields-container').forEach(container => {
+        const growthFactorDetails = {
+            name: container.querySelector('input[placeholder="Name"]').value,
+            vendor: container.querySelector('input[placeholder="Vendor"]').value,
+            catalogNumber: container.querySelector('input[placeholder="Catalog Number"]').value,
+            concentration: container.querySelector('input[placeholder="Final concentration"]').value,
+            unit: container.querySelector('select').value
+        };
+        formData.growthFactors.push(growthFactorDetails);
+    });
+
+    document.querySelectorAll('.passaging--container .fields-container').forEach(container => {
+        const passagingDetails = {
+            name: container.querySelector('input[placeholder="Name"]').value,
+            vendor: container.querySelector('input[placeholder="Vendor"]').value,
+            catalogNumber: container.querySelector('input[placeholder="Catalog Number"]').value,
+            mixtureRatio: container.querySelector('select').value
+        };
+        formData.passaging.push(passagingDetails);
+    });
+
+    document.querySelectorAll('.readout--container .fields-container').forEach(container => {
+        const readoutDetails = {
+            name: container.querySelector('input[placeholder="Name"]').value,
+            positiveCells: container.querySelector('input[placeholder="Vendor"]').value,
+            geneEnrichment: container.querySelector('select').value
+        };
+        formData.readoutDetails.push(readoutDetails);
+    });
 
     downloadObjectAsJson(formData, "formData"); 
-        });
-    }
+
+    });
 });
 
-const form = document.getElementById('survey-form');
-if (form) {
-    console.log('Form found');
-    console.log('Form action:', form.action);  // Log a specific property of the form
-} else {
-    console.log('Form not found');
-}
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('survey-form');
-    if (form) {
-        console.log('Form found, adding listener...');
-        form.addEventListener('submit', function(event) {
-            console.log('Form submitted');
-            event.preventDefault();  // Prevent actual submission for testing
-        });
-    } else {
-        console.log('Form not found');
-    }
-});
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('survey-form');
-    if (form) {
-        form.addEventListener('submit', function(event) {
-            console.log('Form submitted');
-            event.preventDefault(); // Prevent the default form submission behavior
 
-            const formData = {
-                participantID: document.getElementById('participantID').value,
-                publicationID: document.getElementById('publicationID').value,
-            };
-
-            downloadObjectAsJson(formData, "formData");
-        });
-        console.log('Listener added to form');
-    } else {
-        console.log('Form not found');
-    }
-});
