@@ -121,9 +121,9 @@ p {
   justify-content: space-around; /* Spreads the items evenly with space around them */
 }
 .svg-container-custom-bottom {
-  margin-left:170px;
+  
   display: flex;  /* Enables flexbox layout */
-  align-items: center; /* Vertically align items in the middle */
+  align-items:center; /* Vertically align items in the middle */
   justify-content: space-around; /* Spreads the items evenly with space around them */
 }
 
