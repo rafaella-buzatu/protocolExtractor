@@ -192,17 +192,7 @@ hr {
   border: none;             /* Removes any border */
   align-items: center;;
 }
-#submitBtn-protocol {
-  font-size: 18px;          /* Larger font size */
-  padding: 10px 20px;       /* Larger padding for a bigger button */
-  width: 50%;               /* Sets the button width to 50% of its parent container */
-  margin-top: 20px;         /* Adds space above the button */
-  margin-bottom: 30px;      /* Adds space below the button */
-  background-color: #06123b; /* Changes the button color to dark blue */
-  color: white;             /* Changes the text color to white */
-  border: none;             /* Removes any border */
-  align-items: center;;
-}
+
 
 .button-style {
   background-color: #06123b; 
