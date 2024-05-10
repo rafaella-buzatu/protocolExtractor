@@ -191,90 +191,111 @@ function createNewFieldSet_addserum() {
 
         return newFieldSet;
     }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        initializeMDCTextFields(); // Initialize text fields on page load
     
-
-
-  document.addEventListener('DOMContentLoaded', function () {
-
-    initializeMDCTextFields(); // Initialize text fields on page load
-
-
+        // Event delegation for adding media fields
+        document.body.addEventListener('click', function (event) {
+            const target = event.target;
+    
+            if (target.classList.contains('addGrowthFactorButton')) {
+                event.preventDefault(); // Prevent the default form submission behavior
+    
+                const newFieldSet = createNewFieldSet_addgrowthfactor();
+                // Find the parent node for the addButton to correctly use insertBefore
+                const parentOfAddButton = target.parentNode;
+                parentOfAddButton.insertBefore(newFieldSet, target);
+    
+                initializeMDCTextFields(); // Re-initialize MDC components for the new fields
+    
+                // Potentially update the visibility of delete buttons
+                const allFieldSets = target.closest('.growth-factor-container').querySelectorAll('.field-set');
+                const deleteButton = target.closest('.growth-factor-container').querySelector('.deleteGrowthFactorButton');
+                if (allFieldSets.length > 0) {
+                    deleteButton.style.display = 'inline-block';
+                }
+            } else if (target.classList.contains('deleteGrowthFactorButton')) {
+                event.preventDefault();
+    
+                const container = target.closest('.growth-factor-container');
+                const allFieldSets = container.querySelectorAll('.field-set');
+                if (allFieldSets.length > 0) {
+                    allFieldSets[allFieldSets.length - 1].remove();
+    
+                    // Check if we need to hide the delete button
+                    if (container.querySelectorAll('.field-set').length === 0) {
+                        target.style.display = 'none';
+                    }
+                }
+            }
+        });
+    });
      
-    // Attach the event listener to the body
-    document.body.addEventListener('click', function (event) {
-        const target = event.target;
-
-        // Check if the clicked element is one of the buttons
-        if (target.classList.contains('addGrowthFactorButton')) {
-            event.preventDefault(); // Prevent the default form submission behavior
-
-            // Create the container for the new field set
-            const newFieldSet = document.createElement('div');
-            newFieldSet.classList.add('field-set');
-            newFieldSet.innerHTML = `
-            <div class="mdc-layout-grid__inner">
-                <div class="mdc-layout-grid__cell--span-12">
-                    <div class="numbering-and-field">
-                        <div class="fields-container">
-                          <div class="field">
-                              <label class="mdc-text-field mdc-text-field--filled">
-                                  <span class="mdc-text-field__ripple"></span>
-                                  <input class="mdc-text-field__input" type="text" placeholder="Name">
-                                  <span class="mdc-floating-label">Name</span>
-                                  <span class="mdc-line-ripple"></span>
-                              </label>
-                          </div>
-                          <div class="field">
-                              <label class="mdc-text-field mdc-text-field--filled">
-                                  <span class="mdc-text-field__ripple"></span>
-                                  <input class="mdc-text-field__input" type="text" placeholder="Vendor">
-                                  <span class="mdc-floating-label">Vendor</span>
-                                  <span class="mdc-line-ripple"></span>
-                              </label>
-                          </div>
-                          <div class="field">
-                              <label class="mdc-text-field mdc-text-field--filled">
-                                  <span class="mdc-text-field__ripple"></span>
-                                  <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
-                                  <span class="mdc-floating-label">Catalog Number</span>
-                                  <span class="mdc-line-ripple"></span>
-                              </label>
-                          </div>
-                          <div class="field">
-                              <label class="mdc-text-field mdc-text-field--filled">
-                                  <span class="mdc-text-field__ripple"></span>
-                                  <input class="mdc-text-field__input" type="text" placeholder="Final concentration<">
-                                  <span class="mdc-floating-label">Final concentration</span>
-                                  <span class="mdc-line-ripple"></span>
-                              </label>
-                          </div>
-                          <div class="field">
-                                <label class="mdc-text-field mdc-text-field--filled">
-                                    <span class="mdc-text-field__ripple"></span>
-                                    <select class="mdc-text-field__input">
-                                        <option value="ng/mL">ng/mL</default>
-                                        <option value="μM">μM</option>
-                                        <option value="mM">mM</option>
-                                    </select>
-                                    <span class="mdc-floating-label">Unit</span>
-                                    <span class="mdc-line-ripple"></span>
-                                </label>
-                                    </div>
-                                                
-                        </div>
-                    </div>
+function createNewFieldSet_addgrowthfactor() {
+    const newFieldSet = document.createElement('div');
+    newFieldSet.classList.add('field-set');
+    newFieldSet.innerHTML = `
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-12">
+            <div class="numbering-and-field">
+                <div class="fields-container">
+                  <div class="field">
+                      <label class="mdc-text-field mdc-text-field--filled">
+                          <span class="mdc-text-field__ripple"></span>
+                          <input class="mdc-text-field__input" type="text" placeholder="Name">
+                          <span class="mdc-floating-label">Name</span>
+                          <span class="mdc-line-ripple"></span>
+                      </label>
+                  </div>
+                  <div class="field">
+                      <label class="mdc-text-field mdc-text-field--filled">
+                          <span class="mdc-text-field__ripple"></span>
+                          <input class="mdc-text-field__input" type="text" placeholder="Vendor">
+                          <span class="mdc-floating-label">Vendor</span>
+                          <span class="mdc-line-ripple"></span>
+                      </label>
+                  </div>
+                  <div class="field">
+                      <label class="mdc-text-field mdc-text-field--filled">
+                          <span class="mdc-text-field__ripple"></span>
+                          <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
+                          <span class="mdc-floating-label">Catalog Number</span>
+                          <span class="mdc-line-ripple"></span>
+                      </label>
+                  </div>
+                  <div class="field">
+                      <label class="mdc-text-field mdc-text-field--filled">
+                          <span class="mdc-text-field__ripple"></span>
+                          <input class="mdc-text-field__input" type="text" placeholder="Final concentration<">
+                          <span class="mdc-floating-label">Final concentration</span>
+                          <span class="mdc-line-ripple"></span>
+                      </label>
+                  </div>
+                  <div class="field">
+                        <label class="mdc-text-field mdc-text-field--filled">
+                            <span class="mdc-text-field__ripple"></span>
+                            <select class="mdc-text-field__input">
+                                <option value="ng/mL">ng/mL</default>
+                                <option value="μM">μM</option>
+                                <option value="mM">mM</option>
+                            </select>
+                            <span class="mdc-floating-label">Unit</span>
+                            <span class="mdc-line-ripple"></span>
+                        </label>
+                            </div>
+                                        
                 </div>
             </div>
-        `;
+        </div>
+    </div>
+`;
 
-            // Append the new field set in the desired location, e.g., before the target button
-            target.parentNode.insertBefore(newFieldSet, target);
+        return newFieldSet;
+    }
 
-            // Re-initialize MDC text fields to style the newly added fields
-            initializeMDCTextFields();
-        }
-    });
-});
+
 
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -707,6 +728,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             
                           
                               <button type="button" class="addGrowthFactorButton">+</button>
+                              <button type="button" class="deleteGrowthFactorButton" style="display: none;">-</button>
                              </div>
                              </div>
                              
