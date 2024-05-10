@@ -99,78 +99,99 @@ function createNewFieldSet_addmedia() {
         return newFieldSet;
     }
 
-  document.addEventListener('DOMContentLoaded', function () {
-
-    initializeMDCTextFields(); // Initialize text fields on page load
-
-
+    document.addEventListener('DOMContentLoaded', function () {
+        initializeMDCTextFields(); // Initialize text fields on page load
+    
+        // Event delegation for adding media fields
+        document.body.addEventListener('click', function (event) {
+            const target = event.target;
+    
+            if (target.classList.contains('addSerumSupplementButton')) {
+                event.preventDefault(); // Prevent the default form submission behavior
+    
+                const newFieldSet = createNewFieldSet_addserum();
+                // Find the parent node for the addButton to correctly use insertBefore
+                const parentOfAddButton = target.parentNode;
+                parentOfAddButton.insertBefore(newFieldSet, target);
+    
+                initializeMDCTextFields(); // Re-initialize MDC components for the new fields
+    
+                // Potentially update the visibility of delete buttons
+                const allFieldSets = target.closest('.serum-supplements-container').querySelectorAll('.field-set');
+                const deleteButton = target.closest('.serum-supplements-container').querySelector('.deleteSerumButton');
+                if (allFieldSets.length > 0) {
+                    deleteButton.style.display = 'inline-block';
+                }
+            } else if (target.classList.contains('deleteSerumButton')) {
+                event.preventDefault();
+    
+                const container = target.closest('.serum-supplements-container');
+                const allFieldSets = container.querySelectorAll('.field-set');
+                if (allFieldSets.length > 0) {
+                    allFieldSets[allFieldSets.length - 1].remove();
+    
+                    // Check if we need to hide the delete button
+                    if (container.querySelectorAll('.field-set').length === 0) {
+                        target.style.display = 'none';
+                    }
+                }
+            }
+        });
+    });
      
-    // Attach the event listener to the body
-    document.body.addEventListener('click', function (event) {
-        const target = event.target;
-
-        // Check if the clicked element is one of the buttons
-        if (target.classList.contains('addSerumSupplementButton')) {
-            event.preventDefault(); // Prevent the default form submission behavior
-
-            // Create the container for the new field set
-            const newFieldSet = document.createElement('div');
-            newFieldSet.classList.add('field-set');
-            newFieldSet.innerHTML = `
-            <div class="mdc-layout-grid__inner">
-                <div class="mdc-layout-grid__cell--span-12">
-                    <div class="numbering-and-field">
-                        <div class="fields-container">
-                            <div class="field">
-                                <label class="mdc-text-field mdc-text-field--filled">
-                                    <span class="mdc-text-field__ripple"></span>
-                                    <input class="mdc-text-field__input" type="text" placeholder="Name">
-                                    <span class="mdc-floating-label">Name</span>
-                                    <span class="mdc-line-ripple"></span>
-                                </label>
-                            </div>
-                            <div class="field">
-                                <label class="mdc-text-field mdc-text-field--filled">
-                                    <span class="mdc-text-field__ripple"></span>
-                                    <input class="mdc-text-field__input" type="text" placeholder="Vendor">
-                                    <span class="mdc-floating-label">Vendor</span>
-                                    <span class="mdc-line-ripple"></span>
-                                </label>
-                            </div>
-                            <div class="field">
-                                <label class="mdc-text-field mdc-text-field--filled">
-                                    <span class="mdc-text-field__ripple"></span>
-                                    <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
-                                    <span class="mdc-floating-label">Catalog Number</span>
-                                    <span class="mdc-line-ripple"></span>
-                                </label>
-                            </div>
-                            <div class="field">
-                            <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+function createNewFieldSet_addserum() {
+    const newFieldSet = document.createElement('div');
+    newFieldSet.classList.add('field-set');
+    newFieldSet.innerHTML = `
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-12">
+            <div class="numbering-and-field">
+                <div class="fields-container">
+                    <div class="field">
+                        <label class="mdc-text-field mdc-text-field--filled">
                             <span class="mdc-text-field__ripple"></span>
-                            <select class="mdc-text-field__input">
-                              <option value="100">100%</option>
-                              <option value="50">50%</option>
-                              <option value="33">33%</option>
-                            </select>
-                            <span class="mdc-floating-label">Mixture Ratio</span>
+                            <input class="mdc-text-field__input" type="text" placeholder="Name">
+                            <span class="mdc-floating-label">Name</span>
                             <span class="mdc-line-ripple"></span>
-                          </label>
-                            </div>
-                        </div>
+                        </label>
+                    </div>
+                    <div class="field">
+                        <label class="mdc-text-field mdc-text-field--filled">
+                            <span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="text" placeholder="Vendor">
+                            <span class="mdc-floating-label">Vendor</span>
+                            <span class="mdc-line-ripple"></span>
+                        </label>
+                    </div>
+                    <div class="field">
+                        <label class="mdc-text-field mdc-text-field--filled">
+                            <span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
+                            <span class="mdc-floating-label">Catalog Number</span>
+                            <span class="mdc-line-ripple"></span>
+                        </label>
+                    </div>
+                    <div class="field">
+                    <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
+                    <span class="mdc-text-field__ripple"></span>
+                    <select class="mdc-text-field__input">
+                      <option value="100">100%</option>
+                      <option value="50">50%</option>
+                      <option value="33">33%</option>
+                    </select>
+                    <span class="mdc-floating-label">Mixture Ratio</span>
+                    <span class="mdc-line-ripple"></span>
+                  </label>
                     </div>
                 </div>
             </div>
-        `;
+        </div>
+    </div>
+`;
 
-            // Append the new field set in the desired location, e.g., before the target button
-            target.parentNode.insertBefore(newFieldSet, target);
-
-            // Re-initialize MDC text fields to style the newly added fields
-            initializeMDCTextFields();
-        }
-    });
-});
+        return newFieldSet;
+    }
+    
 
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -617,6 +638,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             
                           
                               <button type="button" class="addSerumSupplementButton">+</button>
+                              <button type="button" class="deleteSerumButton" style="display: none;">-</button>
+
                              </div>
                              </div>
                           
