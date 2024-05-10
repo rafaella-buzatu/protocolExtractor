@@ -5,26 +5,51 @@ function initializeMDCTextFields() {
       mdc.textField.MDCTextField.attachTo(textField);
   });
 }
-
-  document.addEventListener('DOMContentLoaded', function () {
-
+document.addEventListener('DOMContentLoaded', function () {
     initializeMDCTextFields(); // Initialize text fields on page load
 
-
-     
-    // Attach the event listener to the body
+    // Event delegation for adding media fields
     document.body.addEventListener('click', function (event) {
         const target = event.target;
 
-        // Check if the clicked element is one of the buttons
         if (target.classList.contains('addMediaButton')) {
             event.preventDefault(); // Prevent the default form submission behavior
-            console.log('making function');
 
-            // Create the container for the new field set
-            const newFieldSet = document.createElement('div');
-            newFieldSet.classList.add('field-set');
-            newFieldSet.innerHTML = `
+            const newFieldSet = createNewFieldSet_addmedia();
+            // Find the parent node for the addButton to correctly use insertBefore
+            const parentOfAddButton = target.parentNode;
+            parentOfAddButton.insertBefore(newFieldSet, target);
+
+            initializeMDCTextFields(); // Re-initialize MDC components for the new fields
+
+            // Potentially update the visibility of delete buttons
+            const allFieldSets = target.closest('.basal-media-container').querySelectorAll('.field-set');
+            const deleteButton = target.closest('.basal-media-container').querySelector('.deleteMediaButton');
+            if (allFieldSets.length > 0) {
+                deleteButton.style.display = 'inline-block';
+            }
+        } else if (target.classList.contains('deleteMediaButton')) {
+            event.preventDefault();
+
+            const container = target.closest('.basal-media-container');
+            const allFieldSets = container.querySelectorAll('.field-set');
+            if (allFieldSets.length > 0) {
+                allFieldSets[allFieldSets.length - 1].remove();
+
+                // Check if we need to hide the delete button
+                if (container.querySelectorAll('.field-set').length === 0) {
+                    target.style.display = 'none';
+                }
+            }
+        }
+    });
+});
+
+     
+function createNewFieldSet_addmedia() {
+    const newFieldSet = document.createElement('div');
+    newFieldSet.classList.add('field-set');
+    newFieldSet.innerHTML = `
             
             <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell--span-12">
@@ -69,17 +94,10 @@ function initializeMDCTextFields() {
                     </div>
                 </div>
             </div>
-        </div>
-            `;
+        </div> `;
 
-            // Append the new field set in the desired location, e.g., before the target button
-            target.parentNode.insertBefore(newFieldSet, target);
-
-            // Re-initialize MDC text fields to style the newly added fields
-            initializeMDCTextFields();
-        }
-    });
-});
+        return newFieldSet;
+    }
 
   document.addEventListener('DOMContentLoaded', function () {
 
@@ -94,7 +112,6 @@ function initializeMDCTextFields() {
         // Check if the clicked element is one of the buttons
         if (target.classList.contains('addSerumSupplementButton')) {
             event.preventDefault(); // Prevent the default form submission behavior
-            console.log('making function');
 
             // Create the container for the new field set
             const newFieldSet = document.createElement('div');
@@ -169,7 +186,6 @@ function initializeMDCTextFields() {
         // Check if the clicked element is one of the buttons
         if (target.classList.contains('addGrowthFactorButton')) {
             event.preventDefault(); // Prevent the default form submission behavior
-            console.log('making function');
 
             // Create the container for the new field set
             const newFieldSet = document.createElement('div');
@@ -252,7 +268,6 @@ function initializeMDCTextFields() {
             // Check if the clicked element is one of the buttons
             if (target.classList.contains('addPassagingButton')) {
                 event.preventDefault(); // Prevent the default form submission behavior
-                console.log('making function');
     
                 // Create the container for the new field set
                 const newFieldSet = document.createElement('div');
@@ -326,7 +341,6 @@ function initializeMDCTextFields() {
             // Check if the clicked element is one of the buttons
             if (target.classList.contains('addReadoutButton')) {
                 event.preventDefault(); // Prevent the default form submission behavior
-                console.log('making function');
     
                 // Create the container for the new field set
                 const newFieldSet = document.createElement('div');
@@ -543,6 +557,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             
 
                             <button type="button" class="addMediaButton">+</button>
+                            <button type="button" class="deleteMediaButton" style="display: none;">-</button>
                             
                             </div>
                             </div>
@@ -830,17 +845,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Re-initialize Material Design Components if necessary
     initializeMDCTextFields();
 });
-
-
-document.addEventListener('DOMContentLoaded', function () {
+  
+  document.addEventListener('DOMContentLoaded', function () {
     const addButton = document.getElementById('addRowButton');
     initializeMDCTextFields();
+
     addButton.addEventListener('click', function (event) {
         event.preventDefault(); // Prevent the default form submission behavior
-  
-        let cellLineCount = document.querySelectorAll('.cell-line-set').length + 1; // Updated to count existing rows dynamically
-  
-        // Create the container for the new cell line set
+
+        let cellLineCount = document.querySelectorAll('.cell-line-set').length + 1;
+
         const newCellLineSet = document.createElement('div');
         newCellLineSet.classList.add('cell-line-set');
         newCellLineSet.innerHTML = `
@@ -873,12 +887,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 <span class="mdc-floating-label" id="cell-line-label-${cellLineCount}">Cell line name</span>
                 <span class="mdc-line-ripple"></span>
             </label>
+            <div class="delete-button-container">
+                <button type="button" class="mdc-icon-button deleteRowButton">-</button>
+            </div>
         `;
-  
-        // Append the new cell line set before the addButton
+
         addButton.parentNode.insertBefore(newCellLineSet, addButton);
         initializeMDCTextFields();
+        attachDeleteButtonEvents();
     });
-  });
-  
-  
+
+    function attachDeleteButtonEvents() {
+        const deleteButtons = document.querySelectorAll('.deleteRowButton');
+        deleteButtons.forEach(button => {
+            button.removeEventListener('click', handleDeleteRow);
+            button.addEventListener('click', handleDeleteRow);
+        });
+    }
+
+    function handleDeleteRow(event) {
+        const cellLineSet = event.target.closest('.cell-line-set');
+        if (cellLineSet) {
+            cellLineSet.remove();
+        }
+    }
+
+    attachDeleteButtonEvents();
+});

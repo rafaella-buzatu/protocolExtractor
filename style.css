@@ -127,11 +127,6 @@ p {
   justify-content: space-around; /* Spreads the items evenly with space around them */
 }
 
-.svg-container-bottom {
-  /* Additional styling if needed, e.g., margins or specific alignments */
-}
-
-
 hr {
   border: none;
   clear:both;
@@ -186,6 +181,7 @@ hr {
   width: 100%;
   float: none;
   clear: both;
+  margin-left: 0;
 }
 
 #step0Checkbox, .step0 {
@@ -249,4 +245,16 @@ hr {
 .sign-up-image-container {
   flex: 0 0 auto; /* Prevents the image container from growing or shrinking */
   padding-left: 20px;
+}
+
+.delete-button-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;    
+  padding-top: 17px; /* Centers vertically */
+  height: 100%;            /* Take full height of the container (adjust based on your design needs) */
+}
+
+.deleteMediaButton {
+  width: 20px; /* Adjust the width as needed */
 }
