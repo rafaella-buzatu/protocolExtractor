@@ -1,0 +1,226 @@
+{
+    "entry_1": {
+        "participantID": "",
+        "publicationID": "",
+        "cellLines": [
+            {
+                "cellLineType": "",
+                "cellLineName": ""
+            }
+        ],
+        "step0Data": {
+            "mediaDetails": [
+                {
+                    "mediaName": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "growthFactors": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "concentration": "",
+                    "unit": "ng/mL"
+                }
+            ],
+            "passaging": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "readoutDetails": [
+                {
+                    "name": "",
+                    "positiveCells": "",
+                    "geneEnrichment": "up"
+                }
+            ]
+        },
+        "step1Data": {
+            "mediaDetails": [
+                {
+                    "mediaName": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "growthFactors": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "concentration": "",
+                    "unit": "ng/mL"
+                }
+            ],
+            "passaging": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "readoutDetails": [
+                {
+                    "name": "",
+                    "positiveCells": "",
+                    "geneEnrichment": "up"
+                }
+            ]
+        },
+        "stepFinalData": {
+            "mediaDetails": [
+                {
+                    "mediaName": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "growthFactors": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "concentration": "",
+                    "unit": "ng/mL"
+                }
+            ],
+            "passaging": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "readoutDetails": [
+                {
+                    "name": "",
+                    "positiveCells": "",
+                    "geneEnrichment": "up"
+                }
+            ]
+        }
+    },
+    "entry_2": {
+        "participantID": "",
+        "publicationID": "",
+        "cellLines": [
+            {
+                "cellLineType": "",
+                "cellLineName": ""
+            }
+        ],
+        "step0Data": {
+            "mediaDetails": [
+                {
+                    "mediaName": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "growthFactors": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "concentration": "",
+                    "unit": "ng/mL"
+                }
+            ],
+            "passaging": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "readoutDetails": [
+                {
+                    "name": "",
+                    "positiveCells": "",
+                    "geneEnrichment": "up"
+                }
+            ]
+        },
+        "step1Data": {
+            "mediaDetails": [
+                {
+                    "mediaName": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "growthFactors": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "concentration": "",
+                    "unit": "ng/mL"
+                }
+            ],
+            "passaging": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "readoutDetails": [
+                {
+                    "name": "",
+                    "positiveCells": "",
+                    "geneEnrichment": "up"
+                }
+            ]
+        },
+        "stepFinalData": {
+            "mediaDetails": [
+                {
+                    "mediaName": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "growthFactors": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "concentration": "",
+                    "unit": "ng/mL"
+                }
+            ],
+            "passaging": [
+                {
+                    "name": "",
+                    "vendor": "",
+                    "catalogNumber": "",
+                    "mixtureRatio": "100"
+                }
+            ],
+            "readoutDetails": [
+                {
+                    "name": "",
+                    "positiveCells": "",
+                    "geneEnrichment": "up"
+                }
+            ]
+        }
+    }
+}

@@ -529,7 +529,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const newStepContainer = document.createElement('div');
         newStepContainer.classList.add('step-container');
         newStepContainer.innerHTML = `
-        <div class="step-container">
                         <hr>
                         <h3 style="font-size: 20px; font-weight: bold;">Step ${stepCount + 1}.</h3>
 
