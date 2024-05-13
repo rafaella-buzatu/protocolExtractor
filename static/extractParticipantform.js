@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Send the formData as a JSON to the server
-        fetch('http://localhost:5000/submit-form', {
+        fetch(' https://protocol-database-2fd7e3539c0b.herokuapp.com/submit-participant', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
