@@ -9,16 +9,15 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/submit-protocol', methods=['POST'])
-def handle_form():
+@app.route('/process-protocol', methods=['POST'])
+def process_protocol():
     # Generate the unique key from the request data
     data = request.get_json()
     unique_key = f"{data['participantID']}_{data['publicationID']}"
     print(f"Handling data for: {unique_key}")
 
     # Define the path to the JSON file
-    file_path = os.path.join('/tmp', 'protocol_data.json')
-
+    file_path = os.path.join('tmp', 'protocol_data.json')
 
     # Read existing data from the file or initialize an empty dictionary
     if os.path.exists(file_path):

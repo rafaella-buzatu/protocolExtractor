@@ -7,8 +7,8 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/submit-participant', methods=['POST'])
-def handle_form():
+@app.route('/process-participant', methods=['POST'])
+def process_participant():
     data = request.get_json()
     excel_path = os.path.join('/tmp', 'participant_data.xlsx')
     

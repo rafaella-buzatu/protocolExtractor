@@ -18,7 +18,7 @@ def signup():
 def protocol():
     return render_template('protocol-form.html')
 
-@app.route('/submit-participant', methods=['POST'])
+@app.route('/process-participant', methods=['POST'])
 def handle_participant():
     try:
         # Attempt to get JSON data from the request
