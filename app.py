@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
-import processParticipantForm
-import processProtocolForm
+from processParticipantForm import handle_form as handle_participant_form
+from processProtocolForm import handle_form as handle_protocol_form
 import os
 import tempfile
 
@@ -18,33 +18,29 @@ def signup():
 def protocol():
     return render_template('protocol-form.html')
 
-@app.route('/process-participant', methods=['POST'])
-def handle_participant():
+@app.route('/submit-participant', methods=['POST'])
+def submit_participant():
     try:
-        # Attempt to get JSON data from the request
         data = request.get_json()
         if data is None:
-            # If no JSON data is received, return an error response
             return jsonify({'error': 'No data received'}), 400
-
-        # Process the received data using your custom function
-        response = processParticipantForm.handle_form(data)
+        
+        response = handle_participant_form(data)
         return jsonify(response)
     except Exception as e:
-        # Handle any unexpected errors that occur during processing
         return jsonify({'error': str(e)}), 500
 
 @app.route('/submit-protocol', methods=['POST'])
-def handle_protocol():
+def submit_protocol():
     try:
         data = request.get_json()
         if data is None:
-            raise ValueError("No JSON data received")
-
-        response = processProtocolForm.handle_form(data)
+            return jsonify({'error': 'No data received'}), 400
+        
+        response = handle_protocol_form(data)
         return jsonify(response)
     except Exception as e:
-        return jsonify({'error': str(e)}), 400
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/save-file', methods=['POST'])
 def save_file():
