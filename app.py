@@ -26,9 +26,15 @@ def handle_participant():
 
 @app.route('/submit-protocol', methods=['POST'])
 def handle_protocol():
-    # Assuming a function in processProtocolForm.py handles the form data
-    response = processProtocolForm.handle_form(request.json)
-    return jsonify(response)
+    try:
+        data = request.get_json()
+        if data is None:
+            raise ValueError("No JSON data received")
+
+        response = processProtocolForm.handle_form(data)
+        return jsonify(response)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
 
 @app.route('/save-file', methods=['POST'])
 def save_file():

@@ -51,20 +51,16 @@ document.addEventListener('DOMContentLoaded', function() {
     formData.stepFinalData = stepFinalData
 
     // Send the formData as a JSON to the server
-    fetch('https://protocol-database-2fd7e3539c0b.herokuapp.com/submit-protocol', {
+    fetch('/submit-protocol', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
     })
     .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
 });
 });
 

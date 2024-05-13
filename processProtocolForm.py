@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/submit-form', methods=['POST'])
+@app.route('/submit-protocol', methods=['POST'])
 def handle_form():
     # Generate the unique key from the request data
     data = request.get_json()
