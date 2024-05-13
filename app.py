@@ -20,9 +20,19 @@ def protocol():
 
 @app.route('/submit-participant', methods=['POST'])
 def handle_participant():
-    # Assuming a function in processParticipantForm.py handles the form data
-    response = processParticipantForm.handle_form(request.json)
-    return jsonify(response)
+    try:
+        # Attempt to get JSON data from the request
+        data = request.get_json()
+        if data is None:
+            # If no JSON data is received, return an error response
+            return jsonify({'error': 'No data received'}), 400
+
+        # Process the received data using your custom function
+        response = processParticipantForm.handle_form(data)
+        return jsonify(response)
+    except Exception as e:
+        # Handle any unexpected errors that occur during processing
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/submit-protocol', methods=['POST'])
 def handle_protocol():
