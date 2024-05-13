@@ -8,6 +8,14 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/signup')
+def signup():
+    return render_template('participant-sign-up-form.html')
+
+@app.route('/protocol')
+def protocol():
+    return render_template('protocol-form.html')
+
 @app.route('/submit-participant', methods=['POST'])
 def handle_participant():
     # Assuming a function in processParticipantForm.py handles the form data
