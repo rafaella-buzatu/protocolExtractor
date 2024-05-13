@@ -39,13 +39,14 @@
                         <div class="index-container">
                             <div class="index-section">
                                 <p>Fill in the sign-up form if you wish to participate in the project:</p>
-                                <a href="participant-sign-up-form.html" class="button-style">Sign up Form</a>
+                                <a href="{{ url_for('signup') }}" class="button-style">Sign up Form</a>
                             </div>
                             <div class="index-section">
                                 <p>Once you receive your instructions, use the following form to fill in the protocol details:</p>
-                                <a href="protocol-form.html" class="button-style">Protocol Form</a>
+                                <a href="{{ url_for('protocol') }}" class="button-style">Protocol Form</a>
                             </div>
                         </div>
+                        
 
                         <div class="svg-container-custom">
                             <div class="svg-container-bottom">
