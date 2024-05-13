@@ -17,7 +17,8 @@ def handle_form():
     print(f"Handling data for: {unique_key}")
 
     # Define the path to the JSON file
-    file_path = 'data/protocols_data.json'
+    file_path = os.path.join('/tmp', 'protocol_data.json')
+
 
     # Read existing data from the file or initialize an empty dictionary
     if os.path.exists(file_path):

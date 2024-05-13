@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pandas as pd
+import os
 import numpy as np
 
 app = Flask(__name__)
@@ -9,7 +10,7 @@ CORS(app)
 @app.route('/submit-form', methods=['POST'])
 def handle_form():
     data = request.get_json()
-    excel_path = 'data/participant_data.xlsx'
+    excel_path = os.path.join('/tmp', 'participant_data.xlsx')
     
     # Load the existing Excel file
     try:

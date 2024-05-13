@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, render_template
 import processParticipantForm
 import processProtocolForm
+import os
+import tempfile
 
 app = Flask(__name__)
 
@@ -27,6 +29,13 @@ def handle_protocol():
     # Assuming a function in processProtocolForm.py handles the form data
     response = processProtocolForm.handle_form(request.json)
     return jsonify(response)
+
+@app.route('/save-file', methods=['POST'])
+def save_file():
+    file = request.files['file']
+    temp_path = os.path.join(tempfile.gettempdir(), file.filename)
+    file.save(temp_path)
+    return jsonify({'message': f'File temporarily saved at {temp_path}'})
 
 if __name__ == '__main__':
     app.run(debug=True)
