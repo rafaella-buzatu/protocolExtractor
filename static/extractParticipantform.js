@@ -21,10 +21,25 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Success:', data);
+            Swal.fire({
+                title: 'Success!',
+                text: 'Thank you for signing up!',
+                icon: 'success',
+                confirmButtonText: 'Close'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('participant-form').reset(); // Clear the form
+                }
+            });
         })
-        .catch((error) => {
+        .catch(error => {
             console.error('Error:', error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong with your submission.',
+                icon: 'error',
+                confirmButtonText: 'Close'
+            });
         });
     });
 });
