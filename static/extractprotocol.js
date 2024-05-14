@@ -59,7 +59,18 @@ document.addEventListener('DOMContentLoaded', function() {
         body: JSON.stringify(formData)
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+        Swal.fire({
+            title: 'Success!',
+            text: 'Thank you for your submission',
+            icon: 'success',
+            confirmButtonText: 'Close'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('survey-form').reset(); // Clear the form
+            }
+        });
+    })
     .catch(error => console.error('Error:', error));
 });
 });
