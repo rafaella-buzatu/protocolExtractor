@@ -1067,6 +1067,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 <span class="mdc-floating-label" id="name-floating-label">Target cell</span>
                 <span class="mdc-line-ripple"></span>
             </label>
+            <div class="delete-button-container">
+                <button type="button" class="mdc-icon-button deleteRowButton">-</button>
+            </div>
               
         `;
 

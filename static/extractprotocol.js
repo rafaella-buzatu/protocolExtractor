@@ -23,21 +23,25 @@ document.addEventListener('DOMContentLoaded', function() {
         targets:[]
     };
 
-    document.querySelectorAll('.cell-line-set').forEach(set => {
-        const cellLine = {
-            cellLineType: set.querySelector('input[type="radio"]:checked') ? set.querySelector('input[type="radio"]:checked').nextElementSibling.textContent : '',
-            cellLineName: set.querySelector('.cell-line-name-field .mdc-text-field__input').value
-        };
-        formData.cellLines.push(cellLine);
-    });
+   document.querySelectorAll('.cell-line-set').forEach(set => {
+    const cellLineType = set.querySelector('input[type="radio"]:checked')
+        ? set.querySelector('input[type="radio"]:checked').parentNode.querySelector('label').textContent.trim()
+        : '';
+
+    const cellLineName = set.querySelector('.cell-line-name-field .mdc-text-field__input').value;
+
+    const cellLine = {
+        cellLineType: cellLineType,
+        cellLineName: cellLineName
+    };
+
+    formData.cellLines.push(cellLine);
+});
 
     document.querySelectorAll('.target-set').forEach(set => {
-        const targetCell = set.querySelector('#targetCell'); // Use querySelector instead of getElementById
+        const targetCell = set.querySelector('#targetCell'); // Correct method to find an element by ID within a class
         if (targetCell) {
-            const target = {
-                targetKeyword: targetCell.value,
-            };
-            formData.targets.push(target);
+            formData.targets.push(targetCell.value); // Directly push the value into the array
         }
     });
 
