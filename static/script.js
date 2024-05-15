@@ -872,7 +872,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                           <hr style = "height: 1px; background-color:grey">
                           <h2 style="font-weight: bold; font-size: 20px;">Readout</h2>
-                          
+
                           <div class="group-readout">
                             <div class="checkbox-container" style="display: flex; align-items: center;">
                                <div class="mdc-checkbox">
@@ -955,6 +955,18 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.addEventListener('change', function (event) {
         if (event.target.classList.contains('media-checkbox')) {
             const passagingContainer = event.target.closest('.step-container').querySelector('.passaging--container');
+            if (event.target.checked) {
+                passagingContainer.style.display = 'block';
+            } else {
+                passagingContainer.style.display = 'none';
+            }
+        }
+    });
+
+    //Use event delegation for handling changes on dynamically added checkboxes
+    document.body.addEventListener('change', function (event) {
+        if (event.target.classList.contains('readout-checkbox')) {
+            const passagingContainer = event.target.closest('.step-container').querySelector('.readout--container');
             if (event.target.checked) {
                 passagingContainer.style.display = 'block';
             } else {
