@@ -1061,15 +1061,17 @@ document.addEventListener('DOMContentLoaded', function () {
         newTargetSet.classList.add('target-set');
         newTargetSet.innerHTML = `
         
-            <label id="target-cell-keywords" class="mdc-text-field mdc-text-field--filled w-100">
-                <span class="mdc-text-field__ripple"></span>
-                <input id="targetCell" class="mdc-text-field__input" type="text" placeholder="Enter a keyword describing the differentiation target" aria-labelledby="name-floating-label" required>
-                <span class="mdc-floating-label" id="name-floating-label">Target cell</span>
-                <span class="mdc-line-ripple"></span>
-            </label>
-            <div class="delete-button-container">
-                <button type="button" class="mdc-icon-button deleteRowButton">-</button>
-            </div>
+        <div class="row">
+        <label id="target-cell-keywords" class="mdc-text-field mdc-text-field--filled w-70">
+            <span class="mdc-text-field__ripple"></span>
+            <input id="targetCell" class="mdc-text-field__input" type="text" placeholder="Enter a keyword describing the differentiation target" aria-labelledby="name-floating-label" required>
+            <span class="mdc-floating-label" id="name-floating-label">Target cell</span>
+            <span class="mdc-line-ripple"></span>
+        </label>
+        <div class="delete-button-container">
+            <button type="button" class="mdc-icon-button deleteRowButton">-</button>
+        </div>
+        </div>
               
         `;
 

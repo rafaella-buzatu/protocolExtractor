@@ -271,3 +271,16 @@ hr {
 .deleteReadoutButton {
   width: 20px; /* Adjust the width as needed */
 }
+
+.row {
+  display: flex; /* Enables flexbox layout which is great for lining items in a row */
+  align-items: center; /* Aligns items vertically in the center */
+}
+
+#target-cell-keywords {
+  margin-right: 10px; /* Adds some spacing between the text field and the delete button */
+}
+
+.delete-button-container {
+  /* This container can stay as is unless you need specific styling */
+}
