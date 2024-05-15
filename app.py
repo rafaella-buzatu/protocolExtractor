@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 from processParticipantForm import handle_form as handle_participant_form
 from processProtocolForm import handle_form as handle_protocol_form
 import os
-import tempfile
+from google.cloud import storage
 
 app = Flask(__name__)
 
@@ -42,12 +42,32 @@ def submit_protocol():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
+def upload_file_to_gcs(file, bucket_name, blob_name):
+    """Uploads a file to the bucket."""
+    # Create a Cloud Storage client.
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(blob_name)
+
+    # Upload the file to a destination
+    blob.upload_from_file(file, content_type=file.content_type)
+
+    return blob.public_url
+
 @app.route('/save-file', methods=['POST'])
 def save_file():
-    file = request.files['file']
-    temp_path = os.path.join(tempfile.gettempdir(), file.filename)
-    file.save(temp_path)
-    return jsonify({'message': f'File temporarily saved at {temp_path}'})
+    try:
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({'error': 'No selected file'}), 400
+        
+        # Define Google Cloud Storage bucket name
+        bucket_name = os.environ.get('GCP_STORAGE_BUCKET')
+        
+        # Upload file to Google Cloud Storage
+        public_url = upload_file_to_gcs(file, bucket_name, file.filename)
+        
+        return jsonify({'message': f'File uploaded to {public_url}'})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

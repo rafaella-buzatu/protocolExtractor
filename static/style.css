@@ -282,5 +282,6 @@ hr {
 }
 
 .delete-button-container {
-  /* This container can stay as is unless you need specific styling */
+  align-items: center;    
+  padding-top: 17px;  /* This container can stay as is unless you need specific styling */
 }
