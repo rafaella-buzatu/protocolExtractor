@@ -940,6 +940,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
                         </div>
+                        &nbsp;
                         
     `;
   
@@ -1030,6 +1031,7 @@ document.addEventListener('DOMContentLoaded', function () {
         attachDeleteButtonEvents();
     });
 
+
     function attachDeleteButtonEvents() {
         const deleteButtons = document.querySelectorAll('.deleteRowButton');
         deleteButtons.forEach(button => {
@@ -1045,5 +1047,48 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    attachDeleteButtonEvents();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const addButton = document.getElementById('addKeywordButton');
+    initializeMDCTextFields();
+
+    addButton.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default form submission behavio
+
+        const newTargetSet = document.createElement('div');
+        newTargetSet.classList.add('target-set');
+        newTargetSet.innerHTML = `
+        
+            <label id="target-cell-keywords" class="mdc-text-field mdc-text-field--filled w-100">
+                <span class="mdc-text-field__ripple"></span>
+                <input id="targetCell" class="mdc-text-field__input" type="text" placeholder="Enter a keyword describing the differentiation target" aria-labelledby="name-floating-label" required>
+                <span class="mdc-floating-label" id="name-floating-label">Target cell</span>
+                <span class="mdc-line-ripple"></span>
+            </label>
+              
+        `;
+
+        addButton.parentNode.insertBefore(newTargetSet, addButton);
+        initializeMDCTextFields();
+        attachDeleteButtonEventsTarget();
+    });
+
+
+    function attachDeleteButtonEventsTarget() {
+        const deleteButtons = document.querySelectorAll('.deleteRowButton');
+        deleteButtons.forEach(button => {
+            button.removeEventListener('click', handleDeleteRowTarget);
+            button.addEventListener('click', handleDeleteRowTarget);
+        });
+    }
+
+    function handleDeleteRowTarget(event) {
+        const targetSet = event.target.closest('.target-set');
+        if (targetSet) {
+            targetSet.remove();
+        }
+    }
     attachDeleteButtonEvents();
 });
