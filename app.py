@@ -41,7 +41,7 @@ def submit_protocol():
         return jsonify(response)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
+    
 @app.route('/save-file', methods=['POST'])
 def save_file():
     file = request.files['file']
