@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const formData = {
         participantID: document.getElementById('participantID').value,
         publicationID: document.getElementById('publicationID').value,
-        cellLines: []
+        cellLines: [],
+        targets:[]
     };
 
     document.querySelectorAll('.cell-line-set').forEach(set => {
@@ -28,6 +29,16 @@ document.addEventListener('DOMContentLoaded', function() {
             cellLineName: set.querySelector('.cell-line-name-field .mdc-text-field__input').value
         };
         formData.cellLines.push(cellLine);
+    });
+
+    document.querySelectorAll('.target-set').forEach(set => {
+        const targetCell = set.querySelector('#targetCell'); // Use querySelector instead of getElementById
+        if (targetCell) {
+            const target = {
+                targetKeyword: targetCell.value,
+            };
+            formData.targets.push(target);
+        }
     });
 
     // Collect data from step 0
