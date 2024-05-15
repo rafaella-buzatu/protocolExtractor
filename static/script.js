@@ -822,7 +822,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                  <div class="field">
                                                      <label class="mdc-text-field mdc-text-field--filled">
                                                          <span class="mdc-text-field__ripple"></span>
-                                                         <input class="mdc-text-field__input" type="text" placeholder="Name" required>
+                                                         <input class="mdc-text-field__input" type="text" placeholder="Name">
                                                          <span class="mdc-floating-label">Name</span>
                                                          <span class="mdc-line-ripple"></span>
                                                      </label>
@@ -830,7 +830,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                  <div class="field">
                                                      <label class="mdc-text-field mdc-text-field--filled">
                                                          <span class="mdc-text-field__ripple"></span>
-                                                         <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
+                                                         <input class="mdc-text-field__input" type="text" placeholder="Vendor">
                                                          <span class="mdc-floating-label">Vendor</span>
                                                          <span class="mdc-line-ripple"></span>
                                                      </label>
@@ -838,7 +838,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                  <div class="field">
                                                      <label class="mdc-text-field mdc-text-field--filled">
                                                          <span class="mdc-text-field__ripple"></span>
-                                                         <input class="mdc-text-field__input" type="text" placeholder="Catalog Number" required>
+                                                         <input class="mdc-text-field__input" type="text" placeholder="Catalog Number">
                                                          <span class="mdc-floating-label">Catalog Number</span>
                                                          <span class="mdc-line-ripple"></span>
                                                      </label>
@@ -846,7 +846,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                  <div class="field">
                                                   <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
                                                     <span class="mdc-text-field__ripple"></span>
-                                                    <select class="mdc-text-field__input" required>
+                                                    <select class="mdc-text-field__input">
                                                       <option value="100">100%</option>
                                                       <option value="50">50%</option>
                                                       <option value="33">33%</option>
@@ -903,7 +903,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                              <div class="field">
                                                  <label class="mdc-text-field mdc-text-field--filled">
                                                      <span class="mdc-text-field__ripple"></span>
-                                                     <input class="mdc-text-field__input" type="text" placeholder="Name" required>
+                                                     <input class="mdc-text-field__input" type="text" placeholder="Name">
                                                      <span class="mdc-floating-label -float-above">Name</span>
                                                      <span class="mdc-line-ripple"></span>
                                                  </label>
@@ -911,7 +911,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                              <div class="field">
                                                  <label class="mdc-text-field mdc-text-field--filled">
                                                      <span class="mdc-text-field__ripple"></span>
-                                                     <input class="mdc-text-field__input" type="text" placeholder="Vendor" required>
+                                                     <input class="mdc-text-field__input" type="text" placeholder="Vendor">
                                                      <span class="mdc-floating-label">% positive cells</span>
                                                      <span class="mdc-line-ripple"></span>
                                                  </label>
@@ -919,7 +919,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                              <div class="field">
                                                 <label class="mdc-text-field mdc-text-field--filled" style = "width:100%">
                                                   <span class="mdc-text-field__ripple"></span>
-                                                  <select class="mdc-text-field__input" required>
+                                                  <select class="mdc-text-field__input">
                                                     <option value="up">↑ upregulated</option>
                                                     <option value="down">↓ downregulated</option>
                                                   </select>
