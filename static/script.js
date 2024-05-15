@@ -1062,7 +1062,7 @@ document.addEventListener('DOMContentLoaded', function () {
         newTargetSet.innerHTML = `
         
         <div class="row">
-        <label id="target-cell-keywords" class="mdc-text-field mdc-text-field--filled w-70">
+        <label id="target-cell-keywords" class="mdc-text-field mdc-text-field--filled w-150">
             <span class="mdc-text-field__ripple"></span>
             <input id="targetCell" class="mdc-text-field__input" type="text" placeholder="Enter a keyword describing the differentiation target" aria-labelledby="name-floating-label" required>
             <span class="mdc-floating-label" id="name-floating-label">Target cell</span>
