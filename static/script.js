@@ -872,6 +872,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
                           <hr style = "height: 1px; background-color:grey">
                           <h2 style="font-weight: bold; font-size: 20px;">Readout</h2>
+                          
+                          <div class="group-readout">
+                            <div class="checkbox-container" style="display: flex; align-items: center;">
+                               <div class="mdc-checkbox">
+                                   <input type="checkbox" class="mdc-checkbox__native-control readout-checkbox"/>
+                                   <div class="mdc-checkbox__background">
+                                       <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                           <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+                                       </svg>
+                                       <div class="mdc-checkbox__mixedmark"></div>
+                                   </div>
+                               </div>
+                               <label class="checkbox-label" style="margin-left: 10px; width: 100%; display: block;">Readout information is available for this step.</label>
+                           </div>
+
+                          <div class="readout--container" style="display:none;">
+
                           <div class="readout--container">
                             <div class="custom-readout mdc-layout-grid">
                              <div class="mdc-layout-grid__cell--span-12">
