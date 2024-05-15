@@ -503,6 +503,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const checkboxGroups = document.querySelectorAll('.group-readout'); // Select groups containing both checkbox and content container
+
+    checkboxGroups.forEach(function(group) {
+        const checkbox = group.querySelector('.readout-checkbox'); // Find the checkbox in this group
+        const contentContainer = group.querySelector('.readout--container'); // Find the corresponding content container
+
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                contentContainer.style.display = 'block';
+            } else {
+                contentContainer.style.display = 'none';
+            }
+        });
+    });
+});
   
   document.addEventListener('DOMContentLoaded', function () {
       const step0Checkbox = document.getElementById('step0Checkbox');
